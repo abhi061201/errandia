@@ -1,3 +1,8 @@
+import 'package:errandia/app/modules/auth/Register/view/buyer/buyer_register_view.dart';
+import 'package:errandia/app/modules/auth/Register/view/service_Provider/Register_serviceprovider_view.dart';
+import 'package:errandia/app/modules/auth/Register/view/vendor/register_vendor_view.dart';
+import 'package:errandia/app/modules/auth/Sign%20in/view/signin_view.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -89,18 +94,22 @@ class Register_Ui extends StatelessWidget {
 
               // sign up as buyer    
               button(Icons.person, (){
-                
+                Get.to(buyer_register_view());
               }, 'Sign up as Buyer'),
               SizedBox(height: Get.height*0.025,),
 
             
               // sign up as vendor
-              button(Icons.person, (){}, 'Sign Up as a Vendor'),
+              button(Icons.person, (){
+                Get.to(register_vendor_view());
+              }, 'Sign Up as a Vendor'),
               SizedBox(height: Get.height*0.025,),
 
 
               // sign up as service provider
-              button(Icons.person, (){}, 'Sign up as a Service Provider'),
+              button(Icons.person, (){
+                Get.to(register_serviceprovider_view());
+              }, 'Sign up as a Service Provider',),
               Spacer(),
 
               RichText(text: TextSpan(
@@ -113,8 +122,13 @@ class Register_Ui extends StatelessWidget {
                     text:'Already have an account? '
                   ),
                   TextSpan(
+                    recognizer: TapGestureRecognizer()..onTap= (){
+                              debugPrint('sign in');
+                              Get.off(signin_view());
+                            },
                     text: 'Sign In',
                     style: TextStyle(
+                      fontWeight: FontWeight.bold,
                       color: Color(0xff3c7fc6)
                     )
                   )

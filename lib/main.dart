@@ -18,7 +18,6 @@ class ErrandiaApp extends StatelessWidget {
         primaryTextTheme: TextTheme(
           
         ),
-        
       ),
       home: splash_screen(),
     );

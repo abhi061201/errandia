@@ -1,4 +1,5 @@
 import 'package:errandia/app/modules/auth/Register/view/register_ui.dart';
+import 'package:errandia/app/modules/auth/Sign%20in/view/signin_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -96,7 +97,9 @@ class register_signin_screen extends StatelessWidget {
 
                 // sign in button
                 InkWell(
-                  onTap: (){},
+                  onTap: (){
+                    Get.to(signin_view());
+                  },
                   child: Container(
                     width: Get.width * 0.9,
                     height: Get.height * 0.07,
