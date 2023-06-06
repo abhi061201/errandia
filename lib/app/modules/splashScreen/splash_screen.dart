@@ -32,14 +32,13 @@ class _splash_screenState extends State<splash_screen> {
     return Scaffold(
       backgroundColor: Color(0xff113d6b),
       body: SafeArea(
-          child: Column(
-        children: [
-          Image(
-            image: AssetImage('assets/images/splash screen.jpg'),
-            fit: BoxFit.fitHeight,
-          ),
-        ],
-      )),
+          child: Center(
+            child: Image(
+              image: AssetImage('assets/images/logo.png'),
+              height: Get.height*0.35,
+              
+            ),
+          )),
     );
   }
 }

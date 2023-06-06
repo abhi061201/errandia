@@ -13,6 +13,13 @@ class ErrandiaApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Color(0xff113d6b),
+        primaryTextTheme: TextTheme(
+          
+        ),
+        
+      ),
       home: splash_screen(),
     );
   }
