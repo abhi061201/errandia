@@ -1,6 +1,7 @@
 import 'package:errandia/app/modules/global/Widgets/appbar.dart';
 import 'package:errandia/app/modules/global/constants/color.dart';
 import 'package:errandia/app/modules/home/categories/view/categories.dart';
+import 'package:errandia/app/modules/home/controller/home_controller.dart';
 import 'package:errandia/common/random_ui/ui_23.dart';
 import 'package:errandia/common/random_ui/run_an_errand.dart';
 import 'package:errandia/app/modules/products/view/product_view.dart';
@@ -17,10 +18,12 @@ import '../recently_posted_item.dart/view/recently_posted_list.dart';
 
 
 class home_view_1 extends StatelessWidget {
-  const home_view_1({super.key});
-
+   home_view_1({super.key});
+  
   @override
+  
   Widget build(BuildContext context) {
+    home_controller().atbusiness.value=false;
     return Stack(
         children: [
           Image(
@@ -211,7 +214,7 @@ class home_view_1 extends StatelessWidget {
 
 Widget Categories_List_Widget() {
   return Container(
-    height: Get.height * 0.25,
+    height: Get.height * 0.2,
     color: Colors.white,
     child: ListView.builder(
       primary: false,
@@ -252,7 +255,7 @@ Widget Categories_List_Widget() {
 
 Widget Featured_Businesses_List() {
   return Container(
-    height: Get.height * 0.42,
+    height: Get.height * 0.33,
     color: Colors.white,
     child: ListView.builder(
       primary: false,
@@ -261,7 +264,7 @@ Widget Featured_Businesses_List() {
       itemCount: Featured_Businesses_Item_List.length,
       itemBuilder: (context, index) {
         return Container(
-          margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           width: Get.width * 0.4,
           color: Colors.white,
           child: Column(
@@ -315,7 +318,7 @@ Widget Featured_Businesses_List() {
 Widget Recently_posted_items_Widget() {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: 14),
-    height: Get.height * 0.5,
+    height: Get.height * 0.47,
     color: Colors.white,
     child: ListView.builder(
       primary: false,
