@@ -1,3 +1,4 @@
+import 'package:errandia/app/modules/global/constants/color.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -5,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-import '../../Register/view/register_ui.dart';
+import '../../Register/register_ui.dart';
 
 class signin_otp_verification_screen extends StatelessWidget {
   signin_otp_verification_screen({super.key});
@@ -136,7 +137,7 @@ class signin_otp_verification_screen extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: PinCodeTextField(
                             pinTheme: PinTheme(
-                              inactiveColor: Get.theme.accentColor,
+                              inactiveColor: appcolor().greyColor,
                               shape: PinCodeFieldShape.box,
                               borderRadius: BorderRadius.circular(10),
                             ),
@@ -204,7 +205,7 @@ class signin_otp_verification_screen extends StatelessWidget {
               ),
 
               SizedBox(
-                height: Get.height * 0.12,
+                height: Get.height * 0.08,
               ),
 
               Align(

@@ -1,6 +1,6 @@
-import 'package:errandia/app/modules/auth/Register/view/buyer/otp_verification_screen.dart';
-import 'package:errandia/app/modules/auth/Register/view/register_signin_screen.dart';
-import 'package:errandia/app/modules/auth/Register/view/register_ui.dart';
+import 'package:errandia/app/modules/auth/Register/buyer/view/otp_verification_screen.dart';
+import 'package:errandia/app/modules/auth/Register/register_signin_screen.dart';
+import 'package:errandia/app/modules/auth/Register/register_ui.dart';
 import 'package:errandia/app/modules/auth/Sign%20in/view/signin_otp_verification_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -46,21 +46,22 @@ class signin_view extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      'LOGIN TO YOUR ERRANDIA',
+                      'LOGIN TO YOUR ERRANDIA ACCOUNT',
                       style: TextStyle(
-                        fontSize: 26,
+                        fontSize: 24,
                         fontWeight: FontWeight.w700,
                         color: Color(0xff113d6b),
                       ),
+                      textAlign: TextAlign.center,
                     ),
-                    Text(
-                      'ACCOUNT',
-                      style: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xff113d6b),
-                      ),
-                    ),
+                    // Text(
+                    //   'ACCOUNT',
+                    //   style: TextStyle(
+                    //     fontSize: 26,
+                    //     fontWeight: FontWeight.w700,
+                    //     color: Color(0xff113d6b),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
@@ -163,9 +164,7 @@ class signin_view extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SizedBox(
-                        height: Get.height * 0.01,
-                      ),
+                     
                       SizedBox(
                         height: Get.height * 0.25,
                       ),
@@ -202,7 +201,7 @@ class signin_view extends StatelessWidget {
               ),
 
               SizedBox(
-                height: Get.height * 0.08,
+                height: Get.height * 0.07,
               ),
 
               Align(
@@ -228,7 +227,7 @@ class signin_view extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: Get.height * 0.04,
+                height: Get.height * 0.03,
               ),
             ],
           ),

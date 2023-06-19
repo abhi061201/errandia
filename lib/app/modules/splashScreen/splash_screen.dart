@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:errandia/app/modules/auth/Register/register_ui.dart';
+import 'package:errandia/app/modules/home/view/home_view.dart';
 import 'package:errandia/app/uis/getStartedScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -32,13 +34,13 @@ class _splash_screenState extends State<splash_screen> {
     return Scaffold(
       backgroundColor: Color(0xff113d6b),
       body: SafeArea(
-          child: Center(
-            child: Image(
-              image: AssetImage('assets/images/logo.png'),
-              height: Get.height*0.35,
-              
-            ),
-          )),
+        child: Center(
+          child: Image(
+            image: AssetImage('assets/images/logo.png'),
+            height: Get.height * 0.35,
+          ),
+        ),
+      ),
     );
   }
 }
