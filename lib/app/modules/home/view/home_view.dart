@@ -31,18 +31,19 @@ class _Home_viewState extends State<Home_view> {
   final singin_controller = Get.lazyPut(() => signIn_controller());
 
   RxInt _index = 0.obs;
-  final tabList = [
-    home_view_1(),
-    run_an_errand(),
-    Business_View(),
-    // Center(child: Text('Business Screen'),),
-    Profile_view(),
-    Center(
-      child: Text('More'),
-    ),
-  ];
+   final tabList = [
+      home_view_1(),
+      run_an_errand(),
+      Business_View(),
+      // Center(child: Text('Business Screen'),),
+      Profile_view(),
+
+      Scaffold(),
+    ];
   @override
   Widget build(BuildContext context) {
+   
+
     return Scaffold(
       // appBar: AppBar(
       //   elevation: 0,
@@ -131,7 +132,11 @@ class _Home_viewState extends State<Home_view> {
             data: NavigationBarThemeData(
               backgroundColor: appcolor().mainColor,
               iconTheme: MaterialStateProperty.all(
-                  IconThemeData(color: Colors.white, size: 35)),
+                IconThemeData(
+                  color: Colors.white,
+                  size: 35,
+                ),
+              ),
               labelTextStyle: MaterialStateProperty.all(
                 TextStyle(
                   fontWeight: FontWeight.w400,
@@ -141,11 +146,13 @@ class _Home_viewState extends State<Home_view> {
               ),
             ),
             child: NavigationBar(
+              
               selectedIndex: _index.value,
+              
               onDestinationSelected: (index) {
                 debugPrint(index.toString());
                 _index.value = index;
-
+                if(index==4)Scaffold.of(context).openDrawer();
                 debugPrint(_index.value.toString());
               },
               destinations: [
@@ -171,9 +178,14 @@ class _Home_viewState extends State<Home_view> {
                   icon: Icon(Icons.person),
                   label: 'Profile',
                 ),
-                NavigationDestination(
-                  icon: Icon(Icons.more_horiz_outlined),
-                  label: 'More',
+                InkWell(
+                  onTap: (){
+                    opendrawer(context);
+                  },
+                  child: NavigationDestination(
+                    icon: Icon(Icons.more_horiz_outlined),
+                    label: 'More',
+                  ),
                 ),
               ],
             ),
@@ -182,4 +194,18 @@ class _Home_viewState extends State<Home_view> {
       ),
     );
   }
+}
+
+
+// Widget opendrawer(BuildContext context){
+
+// return Scaffold.of(context).openDrawer();
+
+// }
+
+
+void opendrawer(context)
+{
+
+  Scaffold.of(context).openDrawer();
 }

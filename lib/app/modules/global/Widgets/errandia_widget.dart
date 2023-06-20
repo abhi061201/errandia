@@ -19,7 +19,7 @@ class errandia_widget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding:EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         margin: EdgeInsets.only(
           // right: 10,
           top: 10,
@@ -34,7 +34,12 @@ class errandia_widget extends StatelessWidget {
             children: [
               Container(
                 height: Get.height * 0.15,
-                child: Image(image: AssetImage(imagePath.toString(),),fit: BoxFit.fill,)
+                child: Image(
+                  image: AssetImage(
+                    imagePath.toString(),
+                  ),
+                  fit: BoxFit.fill,
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -52,7 +57,7 @@ class errandia_widget extends StatelessWidget {
               ),
               Text(
                 name.toString(),
-                style: TextStyle(fontSize: 12, color: appcolor().mainColor),
+                style: TextStyle(fontSize: 13, color: appcolor().mainColor),
                 textAlign: TextAlign.center,
               ),
               Text(
@@ -65,6 +70,5 @@ class errandia_widget extends StatelessWidget {
             ],
           ),
         ));
-    
   }
 }

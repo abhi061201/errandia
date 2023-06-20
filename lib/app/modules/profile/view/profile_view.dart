@@ -1,6 +1,8 @@
+import 'package:errandia/app/modules/buiseness/controller/business_controller.dart';
 import 'package:errandia/app/modules/global/Widgets/errandia_widget.dart';
 import 'package:errandia/app/modules/global/constants/color.dart';
 import 'package:errandia/app/modules/profile/controller/profile_controller.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -30,7 +32,7 @@ class _Profile_viewState extends State<Profile_view>
       children: [
         Container(
           // height: Get.height * 0.45,
-          height: 350,
+          height: 320,
           color: appcolor().mainColor,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -122,6 +124,8 @@ class _Profile_viewState extends State<Profile_view>
             ],
           ).paddingSymmetric(vertical: 15),
         ),
+
+        // tab bar
         Container(
           decoration: BoxDecoration(
             border: Border.symmetric(
@@ -154,7 +158,9 @@ class _Profile_viewState extends State<Profile_view>
                   labelColor: appcolor().darkBlueColor,
                   tabs: [
                     Tab(
-                      text:tabController.index==0? "Product " +prod_list_size:"Product",
+                      text: tabController.index == 0
+                          ? "Product " + prod_list_size
+                          : "Product",
                     ),
                     Tab(
                       text: "Services",
@@ -168,6 +174,8 @@ class _Profile_viewState extends State<Profile_view>
             ],
           ),
         ),
+
+        // tab bar view
         Expanded(
           child: Container(
             color: Colors.white,
@@ -176,9 +184,85 @@ class _Profile_viewState extends State<Profile_view>
             child: TabBarView(
               controller: tabController,
               children: [
-                product_item_list(),
-                Service_item_list(),
-                Buiseness_item_list(),
+                // profile_controller().product_list.length < 0
+                //     ? product_item_list()
+                //     : Column(
+                //         mainAxisAlignment: MainAxisAlignment.center,
+                //         children: [
+                //           Text(
+                //             'No Products Yet',
+                //             style: TextStyle(
+                //               color: appcolor().mediumGreyColor,
+                //               fontSize: 16,
+                //             ),
+                //           ),
+                //           TextButton(
+                //             onPressed: () {},
+                //             child: Text(
+                //               'Add Products',
+                //               style: TextStyle(
+                //                 fontSize: 16,
+                //                 fontWeight: FontWeight.bold,
+                //                 decoration: TextDecoration.underline,
+                //               ),
+                //             ),
+                //           )
+                //         ],
+                //       ),
+
+                profile_controller().product_list.length < 0
+                    ? product_item_list()
+                    : accoutSuspended(),
+                profile_controller().service_list.length > 0
+                    ? Service_item_list()
+                    : Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'No Services Yet',
+                            style: TextStyle(
+                              color: appcolor().mediumGreyColor,
+                              fontSize: 16,
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              'Add Services',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                profile_controller().Buiseness_list.length > 0
+                    ? Buiseness_item_list()
+                    : Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'No Business Yet',
+                            style: TextStyle(
+                              color: appcolor().mediumGreyColor,
+                              fontSize: 16,
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              'Add Business',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
               ],
             ),
           ),
@@ -247,14 +331,79 @@ Widget Service_item_list() {
 
 Widget Buiseness_item_list() {
   return GridView.builder(
-    itemCount: profile_controller().Buiseness_list.length,
-    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-      crossAxisCount: 2,
-      crossAxisSpacing: 10,
-      childAspectRatio: 1 / 1.5,
+      itemCount: profile_controller().Buiseness_list.length,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 5,
+        childAspectRatio: 1 / 1.8,
+      ),
+      itemBuilder: (context, index) {
+        return business_controller().businessList[index];
+      });
+}
+
+Widget accoutSuspended() {
+  return Container(
+    // height: Get.height,
+
+    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+    margin: EdgeInsets.only(
+      top: 10,
     ),
-    itemBuilder: (context, index) {
-      return profile_controller().Buiseness_list[index];
-    },
+    decoration: BoxDecoration(
+      color: appcolor().pinkColor,
+      borderRadius: BorderRadius.circular(10),
+    ),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          height: Get.height * 0.07,
+          child: Image(
+            image: AssetImage(
+              'assets/images/account_suspended.png',
+            ),
+            fit: BoxFit.fill,
+          ),
+        ),
+        Text(
+          'ACCOUNT SUSPENDED',
+          style: TextStyle(
+              color: appcolor().redColor,
+              fontWeight: FontWeight.bold,
+              fontSize: 18),
+        ),
+        Container(
+          child: Text(
+            'Sorry your account has been . While your account is suspended, You cannot add products, services, businesses nor carryout transactions on Errand.',
+            textAlign: TextAlign.center,
+          ),
+        ),
+        SizedBox(
+          height: Get.height * 0.02,
+        ),
+        RichText(
+          text: TextSpan(
+            style: TextStyle(fontSize: 16),
+            children: [
+              TextSpan(
+                recognizer: TapGestureRecognizer()..onTap = () {},
+                text: 'Contact Us',
+                style: TextStyle(
+                    color: appcolor().bluetextcolor,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.underline),
+              ),
+              TextSpan(
+                text: ' for more details',
+                style: TextStyle(
+                  color: appcolor().mediumGreyColor,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    ),
   );
 }
