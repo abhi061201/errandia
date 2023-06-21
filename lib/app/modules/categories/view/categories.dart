@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../global/constants/color.dart';
+import '../../global/constants/color.dart';
 import 'categories_item.dart';
 
 class categories_view extends StatefulWidget {

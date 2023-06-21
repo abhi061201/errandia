@@ -1,6 +1,6 @@
 import 'package:errandia/app/modules/global/Widgets/appbar.dart';
 import 'package:errandia/app/modules/global/constants/color.dart';
-import 'package:errandia/app/modules/home/categories/view/categories.dart';
+import 'package:errandia/app/modules/categories/view/categories.dart';
 import 'package:errandia/app/modules/home/controller/home_controller.dart';
 import 'package:errandia/common/random_ui/ui_23.dart';
 import 'package:errandia/common/random_ui/run_an_errand.dart';
@@ -12,9 +12,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import '../categories/view/categories_item.dart';
-import '../featured_buiseness/view/featured_list_item.dart';
-import '../recently_posted_item.dart/view/recently_posted_list.dart';
+import '../../categories/view/categories_item.dart';
+import '../../buiseness/featured_buiseness/view/featured_list_item.dart';
+import '../../recently_posted_item.dart/view/recently_posted_list.dart';
 
 
 class home_view_1 extends StatelessWidget {
@@ -255,7 +255,7 @@ Widget Categories_List_Widget() {
 
 Widget Featured_Businesses_List() {
   return Container(
-    height: Get.height * 0.33,
+    height: Get.height * 0.365,
     color: Colors.white,
     child: ListView.builder(
       primary: false,

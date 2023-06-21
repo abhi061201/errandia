@@ -1,8 +1,10 @@
 import 'package:errandia/app/modules/auth/Register/register_ui.dart';
 import 'package:errandia/app/modules/buiseness/view/buiseness_view.dart';
 import 'package:errandia/app/modules/global/Widgets/appbar.dart';
+import 'package:errandia/app/modules/global/Widgets/customDrawer.dart';
 import 'package:errandia/app/modules/global/constants/color.dart';
-import 'package:errandia/app/modules/home/categories/view/categories.dart';
+import 'package:errandia/app/modules/categories/view/categories.dart';
+import 'package:errandia/app/modules/home/controller/home_controller.dart';
 import 'package:errandia/app/modules/home/view/home_view_1.dart';
 import 'package:errandia/app/modules/profile/view/profile_view.dart';
 import 'package:errandia/common/random_ui/ui_23.dart';
@@ -16,9 +18,9 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../../auth/Sign in/controller/signin_controller.dart';
-import '../categories/view/categories_item.dart';
-import '../featured_buiseness/view/featured_list_item.dart';
-import '../recently_posted_item.dart/view/recently_posted_list.dart';
+import '../../categories/view/categories_item.dart';
+import '../../buiseness/featured_buiseness/view/featured_list_item.dart';
+import '../../recently_posted_item.dart/view/recently_posted_list.dart';
 
 class Home_view extends StatefulWidget {
   Home_view({super.key});
@@ -29,21 +31,18 @@ class Home_view extends StatefulWidget {
 
 class _Home_viewState extends State<Home_view> {
   final singin_controller = Get.lazyPut(() => signIn_controller());
+  home_controller homecontroller = Get.put(home_controller());
 
   RxInt _index = 0.obs;
-   final tabList = [
-      home_view_1(),
-      run_an_errand(),
-      Business_View(),
-      // Center(child: Text('Business Screen'),),
-      Profile_view(),
-
-      Scaffold(),
-    ];
+  final tabList = [
+    home_view_1(),
+    run_an_errand(),
+    // Business_View(),
+    Center(child: Text('Business Screen'),),
+    Profile_view(),
+  ];
   @override
   Widget build(BuildContext context) {
-   
-
     return Scaffold(
       // appBar: AppBar(
       //   elevation: 0,
@@ -73,10 +72,52 @@ class _Home_viewState extends State<Home_view> {
       //   ],
       // ),
 
-      appBar: appbar(),
-      body: Obx(() {
-        return tabList[_index.value];
-      }),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
+        title: Image(
+          image: AssetImage('assets/images/icon-errandia-logo-about.png'),
+          width: Get.width * 0.3,
+        ),
+        actions: [
+         
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.notifications,
+              size: 30,
+            ),
+            color: appcolor().mediumGreyColor,
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.settings,
+              size: 30,
+            ),
+            color: appcolor().mediumGreyColor,
+          ),
+          IconButton(
+            onPressed: () {
+              homecontroller.openDrawer();
+            },
+            icon: Icon(
+              Icons.more_horiz_outlined,
+              size: 30,
+            ),
+            color: appcolor().mediumGreyColor,
+          ),
+
+        ],
+      ),
+      key: homecontroller.scaffoldkey,
+      endDrawer:customendDrawer(),
+      body: Obx(
+        () {
+          return tabList[_index.value];
+        },
+      ),
       // bottomNavigationBar: BottomNavigationBar(
       //   backgroundColor: appcolor().mainColor,
       //   unselectedItemColor: appcolor().mainColor,
@@ -146,13 +187,11 @@ class _Home_viewState extends State<Home_view> {
               ),
             ),
             child: NavigationBar(
-              
               selectedIndex: _index.value,
-              
               onDestinationSelected: (index) {
                 debugPrint(index.toString());
                 _index.value = index;
-                if(index==4)Scaffold.of(context).openDrawer();
+                if (_index.value == 4) homecontroller.openDrawer();
                 debugPrint(_index.value.toString());
               },
               destinations: [
@@ -178,15 +217,10 @@ class _Home_viewState extends State<Home_view> {
                   icon: Icon(Icons.person),
                   label: 'Profile',
                 ),
-                InkWell(
-                  onTap: (){
-                    opendrawer(context);
-                  },
-                  child: NavigationDestination(
-                    icon: Icon(Icons.more_horiz_outlined),
-                    label: 'More',
-                  ),
-                ),
+                // NavigationDestination(
+                //   icon: Icon(Icons.more_horiz_outlined),
+                //   label: 'More',
+                // ),
               ],
             ),
           );
@@ -194,18 +228,4 @@ class _Home_viewState extends State<Home_view> {
       ),
     );
   }
-}
-
-
-// Widget opendrawer(BuildContext context){
-
-// return Scaffold.of(context).openDrawer();
-
-// }
-
-
-void opendrawer(context)
-{
-
-  Scaffold.of(context).openDrawer();
 }

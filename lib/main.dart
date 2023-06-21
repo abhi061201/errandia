@@ -1,4 +1,4 @@
-import 'package:errandia/app/modules/home/categories/view/categories.dart';
+import 'package:errandia/app/modules/categories/view/categories.dart';
 import 'package:errandia/app/modules/home/view/home_view.dart';
 import 'package:errandia/app/modules/home/view/home_view_1.dart';
 import 'package:errandia/app/modules/products/view/products_send_enquiry.dart';

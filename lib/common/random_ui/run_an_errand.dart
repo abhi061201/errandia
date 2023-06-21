@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../app/modules/global/constants/color.dart';
-import '../../app/modules/home/recently_posted_item.dart/view/recently_posted_list.dart';
+import '../../app/modules/recently_posted_item.dart/view/recently_posted_list.dart';
 
 class run_an_errand extends StatefulWidget {
   const run_an_errand({super.key});
@@ -154,7 +154,7 @@ class _run_an_errandState extends State<run_an_errand> {
           child: Column(
             children: [
               Container(
-                height: Get.height * 0.65,
+                height: Get.height * 0.66,
                 width: Get.width,
                 child: Stack(
                   children: [

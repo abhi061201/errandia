@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../global/constants/color.dart';
-import '../../home/featured_buiseness/view/featured_list_item.dart';
+import '../featured_buiseness/view/featured_list_item.dart';
 
 class buiseness_item extends StatelessWidget {
   buiseness_item({

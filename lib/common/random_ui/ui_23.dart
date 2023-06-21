@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../app/modules/global/constants/color.dart';
-import '../../app/modules/home/categories/view/categories_item.dart';
+import '../../app/modules/categories/view/categories_item.dart';
 
 class Ui_23 extends StatefulWidget {
   Ui_23({super.key});
