@@ -2,6 +2,7 @@ import 'package:flutter/animation.dart';
 
 class appcolor{
 
+  Color iconcolor= Color(0xffc8dbee);
   Color bluetextcolor= Color(0xff3c7fc6);
   Color pinkColor= Color(0xfffaecec);
   Color mainColor= Color(0xff113d6b);

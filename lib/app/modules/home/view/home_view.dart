@@ -72,45 +72,46 @@ class _Home_viewState extends State<Home_view> {
       //   ],
       // ),
 
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-        title: Image(
-          image: AssetImage('assets/images/icon-errandia-logo-about.png'),
-          width: Get.width * 0.3,
-        ),
-        actions: [
+      // appBar: AppBar(
+      //   elevation: 0,
+      //   backgroundColor: Colors.white,
+      //   automaticallyImplyLeading: false,
+      //   title: Image(
+      //     image: AssetImage('assets/images/icon-errandia-logo-about.png'),
+      //     width: Get.width * 0.3,
+      //   ),
+      //   actions: [
          
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.notifications,
-              size: 30,
-            ),
-            color: appcolor().mediumGreyColor,
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.settings,
-              size: 30,
-            ),
-            color: appcolor().mediumGreyColor,
-          ),
-          IconButton(
-            onPressed: () {
-              homecontroller.openDrawer();
-            },
-            icon: Icon(
-              Icons.more_horiz_outlined,
-              size: 30,
-            ),
-            color: appcolor().mediumGreyColor,
-          ),
+      //     IconButton(
+      //       onPressed: () {},
+      //       icon: Icon(
+      //         Icons.notifications,
+      //         size: 30,
+      //       ),
+      //       color: appcolor().mediumGreyColor,
+      //     ),
+      //     IconButton(
+      //       onPressed: () {},
+      //       icon: Icon(
+      //         Icons.settings,
+      //         size: 30,
+      //       ),
+      //       color: appcolor().mediumGreyColor,
+      //     ),
+      //     IconButton(
+      //       onPressed: () {
+      //         homecontroller.openDrawer();
+      //       },
+      //       icon: Icon(
+      //         Icons.more_horiz_outlined,
+      //         size: 30,
+      //       ),
+      //       color: appcolor().mediumGreyColor,
+      //     ),
 
-        ],
-      ),
+      //   ],
+      // ),
+      appBar: appbar(),
       key: homecontroller.scaffoldkey,
       endDrawer:customendDrawer(),
       body: Obx(

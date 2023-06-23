@@ -1,4 +1,5 @@
 import 'package:errandia/app/modules/categories/view/categories.dart';
+import 'package:errandia/app/modules/home/controller/home_controller.dart';
 import 'package:errandia/app/modules/home/view/home_view.dart';
 import 'package:errandia/app/modules/home/view/home_view_1.dart';
 import 'package:errandia/app/modules/products/view/products_send_enquiry.dart';
@@ -14,6 +15,7 @@ import 'package:get_storage/get_storage.dart';
 
 void main()async {
   await GetStorage.init();
+ 
   runApp(const ErrandiaApp());
 }
 

@@ -22,7 +22,7 @@ class _splash_screenState extends State<splash_screen> {
     super.initState();
 
     Timer(
-      Duration(seconds: 3),
+      Duration(seconds: 1),
       () => Get.off(
         Home_view(),
       ),
