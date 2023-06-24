@@ -15,7 +15,7 @@ class dashboard_view extends StatelessWidget {
       backgroundColor: Color(0xfffafafa),
       floatingActionButton: InkWell(
         onTap: () {
-          // custombottomsheet();
+          custombottomsheet();
         },
         child: Container(
           height: 80,
@@ -265,8 +265,9 @@ void custombottomsheet() {
   Get.bottomSheet(
     // backgroundColor: Colors.white,
     Container(
+      
       padding: EdgeInsets.symmetric(horizontal: 20),
-      height: 295,
+      height: 300,
       color: Colors.white,
       child: Column(
         children: [
@@ -277,36 +278,34 @@ void custombottomsheet() {
           bottomSheetWidget(
             title: 'Add New Errand',
             imagepath: 'assets/images/sidebar_icon/icon-profile-errands.png',
+            callback: (){
+              print('tapped');
+            },
+          ),
+          bottomSheetWidget(
+            title: 'Add New Product',
+            imagepath: 'assets/images/sidebar_icon/icon-manage-products.png',
             callback: (){},
           ),
           bottomSheetWidget(
-            title: 'Add New Errand',
-            imagepath: 'assets/images/sidebar_icon/icon-profile-errands.png',
+            title: 'Add New Service',
+            imagepath: 'assets/images/sidebar_icon/services.png',
             callback: (){},
           ),
           bottomSheetWidget(
-            title: 'Add New Errand',
-            imagepath: 'assets/images/sidebar_icon/icon-profile-errands.png',
+            title: 'Add New Business',
+            imagepath: 'assets/images/sidebar_icon/create_shop.png',
             callback: (){},
           ),
           bottomSheetWidget(
-            title: 'Add New Errand',
-            imagepath: 'assets/images/sidebar_icon/icon-profile-errands.png',
-            callback: (){},
-          ),
-          bottomSheetWidget(
-            title: 'Add New Errand',
-            imagepath: 'assets/images/sidebar_icon/icon-profile-errands.png',
+            title: 'Add New Manager',
+            imagepath: 'assets/images/sidebar_icon/icon-manager.png',
             callback: (){},
           ),
         ],
       ),
     ),
-    // barrierColor: Colors.red[50],
-    // isDismissible: false,
-    // shape: RoundedRectangleBorder(
-    //     borderRadius: BorderRadius.circular(35),
-    //     side: BorderSide(width: 5, color: Colors.black)),
+   
     enableDrag: true,
   );
 }
@@ -315,10 +314,16 @@ Widget bottomSheetWidget({
   required String title,
   required String imagepath,
   required Callback callback,
+
 }) {
   return InkWell(
-    // hoverColor: Colors.white38,
-    // focusColor: Colors.white38,
+  
+    // highlightColor: Colors.grey,
+
+    hoverColor: Colors.grey,
+    // focusColor: Colors.grey,
+    // splashColor: Colors.grey,
+    // overlayColor: Colors.grey,
     onTap: callback,
     child: Row(
       children: [

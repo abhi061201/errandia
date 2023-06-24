@@ -1,5 +1,4 @@
-import 'package:errandia/app/modules/auth/Register/register_ui.dart';
-import 'package:errandia/app/modules/buiseness/view/buiseness_view.dart';
+
 import 'package:errandia/app/modules/global/Widgets/appbar.dart';
 import 'package:errandia/app/modules/global/Widgets/customDrawer.dart';
 import 'package:errandia/app/modules/global/constants/color.dart';
@@ -81,7 +80,6 @@ class _Home_viewState extends State<Home_view> {
       //     width: Get.width * 0.3,
       //   ),
       //   actions: [
-         
       //     IconButton(
       //       onPressed: () {},
       //       icon: Icon(
@@ -108,7 +106,6 @@ class _Home_viewState extends State<Home_view> {
       //       ),
       //       color: appcolor().mediumGreyColor,
       //     ),
-
       //   ],
       // ),
       appBar: appbar(),
