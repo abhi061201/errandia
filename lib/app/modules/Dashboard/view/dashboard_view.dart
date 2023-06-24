@@ -1,3 +1,4 @@
+import 'package:errandia/app/modules/global/Widgets/account_suspended_widget.dart';
 import 'package:errandia/app/modules/global/Widgets/appbar.dart';
 import 'package:errandia/app/modules/global/Widgets/customDrawer.dart';
 import 'package:errandia/app/modules/global/constants/color.dart';
@@ -15,7 +16,7 @@ class dashboard_view extends StatelessWidget {
       backgroundColor: Color(0xfffafafa),
       floatingActionButton: InkWell(
         onTap: () {
-          custombottomsheet();
+          custombottomsheet(context);
         },
         child: Container(
           height: 80,
@@ -261,11 +262,10 @@ Widget dashboard_widget({
   );
 }
 
-void custombottomsheet() {
+void custombottomsheet(BuildContext context) {
   Get.bottomSheet(
     // backgroundColor: Colors.white,
     Container(
-      
       padding: EdgeInsets.symmetric(horizontal: 20),
       height: 300,
       color: Colors.white,
@@ -278,34 +278,38 @@ void custombottomsheet() {
           bottomSheetWidget(
             title: 'Add New Errand',
             imagepath: 'assets/images/sidebar_icon/icon-profile-errands.png',
-            callback: (){
+            callback: () async {
               print('tapped');
+              Get.back();
+             showDialog(context: context, builder: (context){
+              return account_suspended_widget();
+             });
             },
           ),
           bottomSheetWidget(
             title: 'Add New Product',
             imagepath: 'assets/images/sidebar_icon/icon-manage-products.png',
-            callback: (){},
+            callback: () {},
           ),
           bottomSheetWidget(
             title: 'Add New Service',
             imagepath: 'assets/images/sidebar_icon/services.png',
-            callback: (){},
+            callback: () {},
           ),
           bottomSheetWidget(
             title: 'Add New Business',
             imagepath: 'assets/images/sidebar_icon/create_shop.png',
-            callback: (){},
+            callback: () {},
           ),
           bottomSheetWidget(
             title: 'Add New Manager',
             imagepath: 'assets/images/sidebar_icon/icon-manager.png',
-            callback: (){},
+            callback: () {},
           ),
         ],
       ),
     ),
-   
+
     enableDrag: true,
   );
 }
@@ -314,10 +318,8 @@ Widget bottomSheetWidget({
   required String title,
   required String imagepath,
   required Callback callback,
-
 }) {
   return InkWell(
-  
     // highlightColor: Colors.grey,
 
     hoverColor: Colors.grey,

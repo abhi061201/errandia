@@ -98,22 +98,22 @@ class _Profile_viewState extends State<Profile_view>
                   children: [
                     details_container_item_widget(
                       'Subscriber',
-                      Icons.abc,
+                      'assets/images/sidebar_icon/icon-profile-subscribers.png',
                       2,
                     ),
                     details_container_item_widget(
                       'Following',
-                      FontAwesomeIcons.users,
+                      'assets/images/sidebar_icon/icon-profile-following.png',
                       2,
                     ),
                     details_container_item_widget(
                       'Errands',
-                      Icons.search_rounded,
+                      'assets/images/sidebar_icon/icon-profile-errands.png',
                       2,
                     ),
                     details_container_item_widget(
                       'Reviews',
-                      Icons.reviews_rounded,
+                      'assets/images/sidebar_icon/icon-reviews.png',
                       2,
                     ),
                   ],
@@ -277,17 +277,19 @@ class _Profile_viewState extends State<Profile_view>
 
 Widget details_container_item_widget(
   String title,
-  IconData iconData,
+  String imagepath,
   int count,
 ) {
   return Column(
+    mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Container(
-        child: Icon(
-          iconData,
-          color: appcolor().mediumGreyColor,
-        ),
-      ),
+        child: Image(
+        image: AssetImage(imagepath),
+        height: Get.height * 0.03,
+        fit: BoxFit.fill,
+        color: appcolor().mediumGreyColor,
+      )),
       Container(
         margin: EdgeInsets.symmetric(vertical: 5),
         child: Text(

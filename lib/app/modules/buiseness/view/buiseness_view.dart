@@ -48,11 +48,11 @@ class Business_View extends StatelessWidget {
                 TextButton(
                   onPressed: () {},
                   child: Text(
-                    'Update',
+                    'Update Business',
                     style: TextStyle(
-                      color: appcolor().mainColor,
+                      color: appcolor().blueColor,
                       fontSize: 10,
-                      fontWeight: FontWeight.w900,
+                      fontWeight: FontWeight.w700,
                       decoration: TextDecoration.underline,
                     ),
                   ),
@@ -63,14 +63,56 @@ class Business_View extends StatelessWidget {
 
           //busieness
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: Text(
-              'Buiseness',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-                color: appcolor().mainColor,
-              ),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Row(
+              children: [
+                Text(
+                  'Buiseness',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    color: appcolor().mainColor,
+                  ),
+                ),
+                Spacer(),
+                InkWell(
+                  splashColor: Colors.grey,
+                  // splashFactory: InkSplash.splashFactory,'[=]
+                  // radius: 25,
+                  onTap: () {
+                    Get.bottomSheet(
+                      Container(
+                        height: Get.height * 0.5,
+                        color: Colors.white,
+                        child: Column(
+                          children: [
+                            
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    child: Icon(Icons.sort),
+                    height: Get.height * 0.02,
+                  ),
+                ),
+                // IconButton(
+                //   padding: EdgeInsets.all(0),
+
+                //   splashRadius: 15,
+                //   // visualDensity: VisualDensity(
+                //   //   horizontal: 5,
+                //   //   vertical: 5,
+                //   // ),
+                //   highlightColor: Colors.red,
+                //   onPressed: () {},
+                //   icon: Icon(
+                //     Icons.sort,
+                //   ),
+
+                // ),
+              ],
             ),
           ),
 
@@ -83,19 +125,7 @@ class Business_View extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return Center(
-                  child: InkWell(
-                    onTap: () {},
-                    child: Container(
-                      padding: EdgeInsets.all(15),
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      decoration: BoxDecoration(
-                        color: appcolor().skyblueColor,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      // height: 20,
-                      child: Text('Beauty & Hair'),
-                    ),
-                  ),
+                  child: horizontal_list_item(),
                 );
               },
             ),
@@ -107,57 +137,82 @@ class Business_View extends StatelessWidget {
             child: GridView.builder(
               itemCount: business_controller().businessList.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 1 / 1.7,
-                  crossAxisSpacing: 5),
+                crossAxisCount: 2,
+                childAspectRatio: 1 / 1.7,
+                crossAxisSpacing: 6,
+                mainAxisSpacing: 6,
+              ),
               itemBuilder: (context, index) {
-                return Container(
-          margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-          width: Get.width * 0.4,
-          color: Colors.white,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                color: appcolor().lightgreyColor,
-                child: Image(
-                  image: AssetImage(
-                     business_controller().businessList[index].imagepath,
+                return InkWell(
+                  onTap: () {},
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      // border: Border.all(color: appcolor().greyColor)
+                    ),
+                    margin: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                    // width: Get.width * 0.4,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          color: appcolor().lightgreyColor,
+                          child: Image(
+                            image: AssetImage(
+                              business_controller()
+                                  .businessList[index]
+                                  .imagepath,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: Get.height * 0.009,
+                        ),
+                        Text(
+                          business_controller()
+                              .businessList[index]
+                              .type_of_business,
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.bold,
+                              color: appcolor().mediumGreyColor),
+                        ),
+                        SizedBox(
+                          height: Get.height * 0.001,
+                        ),
+                        Text(
+                          business_controller()
+                              .businessList[index]
+                              .name
+                              .toString(),
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: appcolor().mainColor,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        SizedBox(
+                          height: Get.height * 0.001,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.location_on),
+                            Text(
+                              business_controller()
+                                  .businessList[index]
+                                  .location
+                                  .toString(),
+                              textAlign: TextAlign.center,
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ),
-              SizedBox(
-                height: Get.height * 0.009,
-              ),
-              Text(
-                 business_controller().businessList[index].type_of_business,
-                style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.bold,
-                    color: appcolor().mediumGreyColor),
-              ),
-              SizedBox(
-                height: Get.height * 0.001,
-              ),
-              Text(
-                 business_controller().businessList[index].name.toString(),
-                style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    color: appcolor().mainColor),
-              ),
-              SizedBox(
-                height: Get.height * 0.001,
-              ),
-              Row(
-                children: [
-                  Icon(Icons.location_on),
-                  Text( business_controller().businessList[index].location.toString())
-                ],
-              ),
-            ],
-          ),
-        );
+                );
               },
             ).paddingSymmetric(horizontal: 10),
           )
@@ -165,4 +220,20 @@ class Business_View extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget horizontal_list_item() {
+  return InkWell(
+    onTap: () {},
+    child: Container(
+      padding: EdgeInsets.all(15),
+      margin: EdgeInsets.symmetric(horizontal: 5),
+      decoration: BoxDecoration(
+        color: appcolor().skyblueColor,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      // height: 20,
+      child: Text('Beauty & Hair'),
+    ),
+  );
 }
