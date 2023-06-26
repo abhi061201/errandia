@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 import '../../global/constants/color.dart';
 import '../featured_buiseness/view/featured_list_item.dart';
 
-class buiseness_item extends StatelessWidget {
-  buiseness_item({
+class business_item extends StatelessWidget {
+  business_item({
     super.key,
     required this.imagepath,
     required this.location,

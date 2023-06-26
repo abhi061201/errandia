@@ -1,4 +1,5 @@
 
+import 'package:errandia/app/modules/buiseness/view/business_view.dart';
 import 'package:errandia/app/modules/global/Widgets/appbar.dart';
 import 'package:errandia/app/modules/global/Widgets/customDrawer.dart';
 import 'package:errandia/app/modules/global/constants/color.dart';
@@ -17,7 +18,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import '../../auth/Sign in/controller/signin_controller.dart';
-import '../../buiseness/view/buiseness_view.dart';
+// import '../../buiseness/view/buiseness_view.dart';
 import '../../categories/view/categories_item.dart';
 import '../../buiseness/featured_buiseness/view/featured_list_item.dart';
 import '../../recently_posted_item.dart/view/recently_posted_list.dart';
@@ -37,8 +38,8 @@ class _Home_viewState extends State<Home_view> {
   final tabList = [
     home_view_1(),
     run_an_errand(),
-    // Business_View(),
-    Center(child: Text('Business Screen'),),
+    Business_View(),
+    // Center(child: Text('Business Screen'),),
     Profile_view(),
   ];
   @override

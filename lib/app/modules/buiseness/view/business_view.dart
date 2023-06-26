@@ -1,5 +1,5 @@
 import 'package:errandia/app/modules/buiseness/controller/business_controller.dart';
-import 'package:errandia/app/modules/buiseness/view/buiseness_item.dart';
+import 'package:errandia/app/modules/buiseness/view/business_item.dart';
 import 'package:errandia/app/modules/home/controller/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -8,8 +8,8 @@ import 'package:get/get.dart';
 import '../../global/constants/color.dart';
 
 class Business_View extends StatelessWidget {
-  const Business_View({super.key});
-
+  Business_View({super.key});
+  String groupvalue = '0';
   @override
   Widget build(BuildContext context) {
     home_controller().atbusiness.value = true;
@@ -86,7 +86,42 @@ class Business_View extends StatelessWidget {
                         color: Colors.white,
                         child: Column(
                           children: [
-                            
+                            Radio(
+                              
+                              value: Text('Business Name : Desc Z-A'),
+                              groupValue: groupvalue,
+                              onChanged: (val){
+                                print('1');
+                              },
+                            )
+
+                            // RadioListTile(
+                            //   title: Text('Business Name : Desc Z-A'),
+                            //   value: '0',
+                            //   groupValue: groupvalue,
+                            //   onChanged: (val) {print(val);},
+                            // ),
+                            // RadioListTile(
+                            //   title: Text('Business Name : Asc A-Z'),
+                            //   value: '1',
+                            //   groupValue: groupvalue,
+                            //   onChanged: (val) {print(val);},
+                            // ),
+                            // RadioListTile(
+                            //   title: Text('Distance: Nearest to my location'),
+                            //   value: '2',
+                            //   groupValue: groupvalue,
+                            //   onChanged: (val) {print(val);},
+                            // ),
+                            // RadioListTile(
+
+                            //   title: Text('Recently Added'),
+                            //   value: '3',
+                            //   groupValue: groupvalue,
+                            //   onChanged: (val) {
+                            //     print(val);
+                            //   },
+                            // ),
                           ],
                         ),
                       ),

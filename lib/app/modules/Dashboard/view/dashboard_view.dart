@@ -1,11 +1,15 @@
+
 import 'package:errandia/app/modules/global/Widgets/account_suspended_widget.dart';
 import 'package:errandia/app/modules/global/Widgets/appbar.dart';
 import 'package:errandia/app/modules/global/Widgets/customDrawer.dart';
 import 'package:errandia/app/modules/global/constants/color.dart';
+import 'package:errandia/app/modules/home/view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
+
+import '../../buiseness/view/manage_business_view.dart';
 
 class dashboard_view extends StatelessWidget {
   const dashboard_view({super.key});
@@ -62,7 +66,10 @@ class dashboard_view extends StatelessWidget {
                     Imagepath: 'assets/images/sidebar_icon/icon-company.png',
                     title: 'Manage Businesses',
                     belowtext: '0 Businesses',
-                    callback: () {},
+                    callback: () {
+                      // Get.offAll(Home_view());
+                      Get.to(manage_business_view());
+                    },
                   ),
                   dashboard_widget(
                     Imagepath:
@@ -281,9 +288,11 @@ void custombottomsheet(BuildContext context) {
             callback: () async {
               print('tapped');
               Get.back();
-             showDialog(context: context, builder: (context){
-              return account_suspended_widget();
-             });
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return account_suspended_widget();
+                  });
             },
           ),
           bottomSheetWidget(

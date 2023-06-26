@@ -1,8 +1,12 @@
 import 'package:errandia/app/modules/Dashboard/view/dashboard_view.dart';
+
 import 'package:errandia/app/modules/global/constants/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
+
+import '../../buiseness/view/manage_business_view.dart';
+import '../../home/view/home_view.dart';
 
 class customendDrawer extends StatelessWidget {
   customendDrawer({super.key});
@@ -73,12 +77,18 @@ class customendDrawer extends StatelessWidget {
             drawerItemWidget(
               text: 'Manage Services',
               imagePath: 'assets/images/sidebar_icon/services.png',
-              callback: () {},
+              callback: () {
+                
+              },
             ),
             drawerItemWidget(
               text: 'Manage Businesses',
               imagePath: 'assets/images/sidebar_icon/icon-company.png',
-              callback: () {},
+              callback: () {
+                Get.back();
+                // Get.offAll(Home_view());
+                Get.to(manage_business_view());
+              },
             ),
             drawerItemWidget(
               text: 'Enquiries',
