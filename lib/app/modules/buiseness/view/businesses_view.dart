@@ -1,5 +1,6 @@
 import 'package:errandia/app/modules/buiseness/controller/business_controller.dart';
 import 'package:errandia/app/modules/buiseness/view/business_item.dart';
+import 'package:errandia/app/modules/buiseness/view/errandia_business_view.dart';
 import 'package:errandia/app/modules/home/controller/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -7,9 +8,9 @@ import 'package:get/get.dart';
 
 import '../../global/constants/color.dart';
 
-class Business_View extends StatelessWidget {
-  Business_View({super.key});
-  String groupvalue = '0';
+class Businesses_View extends StatelessWidget {
+  Businesses_View({super.key});
+  business_controller busi_controller = Get.put(business_controller());
   @override
   Widget build(BuildContext context) {
     home_controller().atbusiness.value = true;
@@ -82,54 +83,165 @@ class Business_View extends StatelessWidget {
                   onTap: () {
                     Get.bottomSheet(
                       Container(
-                        height: Get.height * 0.5,
+                        // padding: EdgeInsets.symmetric(
+                        //   horizontal: 15,
+                        // ),
+                        height: Get.height * 0.4,
                         color: Colors.white,
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Radio(
-                              
-                              value: Text('Business Name : Desc Z-A'),
-                              groupValue: groupvalue,
-                              onChanged: (val){
-                                print('1');
-                              },
-                            )
+                            Text(
+                              'Sort List',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 22,
+                                color: appcolor().mainColor,
+                              ),
+                            ),
+                            // z-a
+                            Row(
+                              children: [
+                                RichText(
+                                  text: TextSpan(
+                                    style: TextStyle(fontSize: 16),
+                                    children: [
+                                      TextSpan(
+                                        text: 'Business Name : ',
+                                        style: TextStyle(
+                                          color: appcolor().mainColor,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                          text: 'Desc Z-A',
+                                          style: TextStyle(
+                                            color: appcolor().mediumGreyColor,
+                                          ),)
+                                    ],
+                                  ),
+                                ),
+                                Spacer(),
+                                Obx(() => Radio(
+                                  value: 'sort descending',
+                                  groupValue:
+                                      busi_controller.sorting_value.value,
+                                  onChanged: (val) {
+                                    busi_controller.sorting_value.value =
+                                        val.toString();
+                                  },
+                                ),)
+                              ],
+                            ),
 
-                            // RadioListTile(
-                            //   title: Text('Business Name : Desc Z-A'),
-                            //   value: '0',
-                            //   groupValue: groupvalue,
-                            //   onChanged: (val) {print(val);},
-                            // ),
-                            // RadioListTile(
-                            //   title: Text('Business Name : Asc A-Z'),
-                            //   value: '1',
-                            //   groupValue: groupvalue,
-                            //   onChanged: (val) {print(val);},
-                            // ),
-                            // RadioListTile(
-                            //   title: Text('Distance: Nearest to my location'),
-                            //   value: '2',
-                            //   groupValue: groupvalue,
-                            //   onChanged: (val) {print(val);},
-                            // ),
-                            // RadioListTile(
+                            // a-z
+                            Row(
+                              children: [
+                                RichText(
+                                  text: TextSpan(
+                                    style: TextStyle(fontSize: 16),
+                                    children: [
+                                      TextSpan(
+                                        text: 'Business Name : ',
+                                        style: TextStyle(
+                                          color: appcolor().mainColor,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: 'Asc A-Z',
+                                        style: TextStyle(
+                                          color: appcolor().mediumGreyColor,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Spacer(),
+                               Obx(() =>  Radio(
+                                  value: 'sort acending',
+                                  groupValue:
+                                      busi_controller.sorting_value.value,
+                                  onChanged: (val) {
+                                    busi_controller.sorting_value.value =
+                                        val.toString();
+                                  },
+                                ))
+                              ],
+                            ),
 
-                            //   title: Text('Recently Added'),
-                            //   value: '3',
-                            //   groupValue: groupvalue,
-                            //   onChanged: (val) {
-                            //     print(val);
-                            //   },
-                            // ),
+                            // distance nearest to me
+                            Row(
+                              children: [
+                                RichText(
+                                    text: TextSpan(
+                                        style: TextStyle(fontSize: 16),
+                                        children: [
+                                      TextSpan(
+                                        text:
+                                            'Distance: Nearest to my location',
+                                        style: TextStyle(
+                                          color: appcolor().mainColor,
+                                        ),
+                                      ),
+                                    ])),
+                                Spacer(),
+                                Obx(() => Radio(
+                                  value: 'distance nearest to my location',
+                                  groupValue:
+                                      busi_controller.sorting_value.value,
+                                  onChanged: (val) {
+                                    busi_controller.sorting_value.value =
+                                        val.toString();
+                                  },
+                                ))
+                              ],
+                            ),
+
+                            //recentaly added
+                            Row(
+                              children: [
+                                Text(
+                                  'Recently Added ',
+                                  style: TextStyle(
+                                      color: appcolor().mainColor,
+                                      fontSize: 16),
+                                ),
+                                Icon(
+                                  Icons.arrow_upward,
+                                  size: 25,
+                                  color: appcolor().mediumGreyColor,
+                                ),
+                                Spacer(),
+                                Obx(() => Radio(
+                                  value: 'recentaly added',
+                                  groupValue:
+                                      busi_controller.sorting_value.value,
+                                  onChanged: (val) {
+                                    busi_controller.sorting_value.value =
+                                        val.toString();
+                                        print(val.toString());
+                                  },
+                                ),)
+                              ],
+                            ),
                           ],
+                        ).paddingSymmetric(
+                          horizontal: 20,
+                          vertical: 10,
                         ),
                       ),
                     );
                   },
                   child: Container(
+                    
                     child: Icon(Icons.sort),
-                    height: Get.height * 0.02,
+                    
+                    height: Get.height * 0.05,
+                    width: Get.width*0.1,
+                    decoration: BoxDecoration(
+                      // color: Colors.amber,
+                      shape: BoxShape.circle
+                    ),
                   ),
                 ),
                 // IconButton(
@@ -179,7 +291,9 @@ class Business_View extends StatelessWidget {
               ),
               itemBuilder: (context, index) {
                 return InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Get.to(errandia_business_view(index: index,));
+                  },
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,

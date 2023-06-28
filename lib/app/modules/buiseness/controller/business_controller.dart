@@ -6,11 +6,13 @@ import 'package:get/get.dart';
 import '../view/business_item.dart';
 
 class business_controller extends GetxController {
+
+  var sorting_value= "sort descending".obs;
   List<business_item> businessList = [
     business_item(
       imagepath: 'assets/images/featured_buiseness_icon/mechanic.png',
       location: 'Akwa , Douala',
-      name: 'Centrale Auto Cabine',
+      name: 'Centrale ',
       type_of_business: 'Cars & Bikes',
     ),
     business_item(
@@ -22,7 +24,7 @@ class business_controller extends GetxController {
     business_item(
       imagepath: 'assets/images/featured_buiseness_icon/plumbing.png',
       location: 'Akwa , Douala',
-      name: 'Centrale Auto Cabine',
+      name: 'Centrale Auto',
       type_of_business: 'Cars & Bikes',
     ),
     business_item(
@@ -34,7 +36,7 @@ class business_controller extends GetxController {
     business_item(
       imagepath: 'assets/images/featured_buiseness_icon/mechanic.png',
       location: 'Akwa , Douala',
-      name: 'Centrale Auto Cabine',
+      name: 'Centrale Auto ',
       type_of_business: 'Cars & Bikes',
     ),
     business_item(
@@ -46,17 +48,27 @@ class business_controller extends GetxController {
     business_item(
       imagepath: 'assets/images/featured_buiseness_icon/plumbing.png',
       location: 'Akwa , Douala',
-      name: 'Centrale Auto Cabine',
+      name: 'Centrale Auto',
       type_of_business: 'Cars & Bikes',
     ),
+
+
     
   ];
+
+
+
+  void set_sorting_value(var value)
+  {
+      sorting_value.value=value;
+  }
 }
 
 
 
 class manage_business_tabController extends GetxController with GetSingleTickerProviderStateMixin{
 
+  
    List<Widget> myTabs = [
     allBusiness(),
     Published(),
@@ -79,5 +91,7 @@ class manage_business_tabController extends GetxController with GetSingleTickerP
     tabController.dispose();
     super.dispose();
   }
+
+  
 
 }

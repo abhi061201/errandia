@@ -1,5 +1,5 @@
 
-import 'package:errandia/app/modules/buiseness/view/business_view.dart';
+import 'package:errandia/app/modules/buiseness/view/businesses_view.dart';
 import 'package:errandia/app/modules/global/Widgets/appbar.dart';
 import 'package:errandia/app/modules/global/Widgets/customDrawer.dart';
 import 'package:errandia/app/modules/global/constants/color.dart';
@@ -38,7 +38,7 @@ class _Home_viewState extends State<Home_view> {
   final tabList = [
     home_view_1(),
     run_an_errand(),
-    Business_View(),
+    Businesses_View(),
     // Center(child: Text('Business Screen'),),
     Profile_view(),
   ];

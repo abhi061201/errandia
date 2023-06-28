@@ -14,5 +14,6 @@ class appcolor{
   Color skyblueColor= Color(0xffe0f6fe);
   Color lightgreyColor= Color(0xfffafafa);
   Color greenColor= Color(0xff35c77e);
+  Color amberColor= Color(0xfffbc418);
 
 }

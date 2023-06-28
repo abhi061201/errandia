@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
 
 import '../../buiseness/view/manage_business_view.dart';
+import '../../global/Widgets/bottomsheet_item.dart';
 
 class dashboard_view extends StatelessWidget {
   const dashboard_view({super.key});
@@ -282,7 +283,7 @@ void custombottomsheet(BuildContext context) {
             Icons.horizontal_rule,
             size: 25,
           ),
-          bottomSheetWidget(
+          bottomSheetWidgetitem(
             title: 'Add New Errand',
             imagepath: 'assets/images/sidebar_icon/icon-profile-errands.png',
             callback: () async {
@@ -295,22 +296,22 @@ void custombottomsheet(BuildContext context) {
                   });
             },
           ),
-          bottomSheetWidget(
+          bottomSheetWidgetitem(
             title: 'Add New Product',
             imagepath: 'assets/images/sidebar_icon/icon-manage-products.png',
             callback: () {},
           ),
-          bottomSheetWidget(
+          bottomSheetWidgetitem(
             title: 'Add New Service',
             imagepath: 'assets/images/sidebar_icon/services.png',
             callback: () {},
           ),
-          bottomSheetWidget(
+          bottomSheetWidgetitem(
             title: 'Add New Business',
             imagepath: 'assets/images/sidebar_icon/create_shop.png',
             callback: () {},
           ),
-          bottomSheetWidget(
+          bottomSheetWidgetitem(
             title: 'Add New Manager',
             imagepath: 'assets/images/sidebar_icon/icon-manager.png',
             callback: () {},
@@ -320,44 +321,5 @@ void custombottomsheet(BuildContext context) {
     ),
 
     enableDrag: true,
-  );
-}
-
-Widget bottomSheetWidget({
-  required String title,
-  required String imagepath,
-  required Callback callback,
-}) {
-  return InkWell(
-    // highlightColor: Colors.grey,
-
-    hoverColor: Colors.grey,
-    // focusColor: Colors.grey,
-    // splashColor: Colors.grey,
-    // overlayColor: Colors.grey,
-    onTap: callback,
-    child: Row(
-      children: [
-        Container(
-          height: 24,
-          child: Image(
-            image: AssetImage(
-              imagepath,
-            ),
-            color: Colors.black,
-            fit: BoxFit.fill,
-          ),
-        ),
-        SizedBox(
-          width: 18,
-        ),
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: 16,
-          ),
-        ),
-      ],
-    ).paddingSymmetric(vertical: 15),
   );
 }

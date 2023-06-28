@@ -44,6 +44,8 @@ dependencies:
   carousel_slider: ^4.2.1
   flutter_rating_bar: ^4.0.1
   font_awesome_flutter: ^10.4.0
+  #for share from share button
+  share: ^2.0.4
   
 
 

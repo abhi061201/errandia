@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:share/share.dart';
 import '../../global/constants/color.dart';
 
 class Product_view extends StatefulWidget {
@@ -58,7 +59,9 @@ class _Product_viewState extends State<Product_view>
             color: appcolor().mediumGreyColor,
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Share.share('text',subject: 'hello share');
+            },
             icon: Icon(
               Icons.share,
               size: 30,
