@@ -1,3 +1,4 @@
+import 'package:errandia/app/modules/auth/Register/registration_successful_view.dart';
 import 'package:errandia/app/modules/global/constants/color.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -178,7 +179,9 @@ class signin_otp_verification_screen extends StatelessWidget {
                       //button container
 
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Get.to(registration_successful_view());
+                        },
                         child: Container(
                           height: Get.height * 0.09,
                           decoration: BoxDecoration(

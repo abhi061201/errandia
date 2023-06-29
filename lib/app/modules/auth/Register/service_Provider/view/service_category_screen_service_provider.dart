@@ -1,3 +1,4 @@
+import 'package:errandia/app/modules/auth/Register/registration_successful_view.dart';
 import 'package:errandia/app/modules/auth/Register/service_Provider/view/service_category_item_list.dart';
 import 'package:errandia/app/modules/global/Widgets/GlobalDialogBoxtext.dart';
 import 'package:errandia/app/modules/global/Widgets/blockButton.dart';
@@ -77,7 +78,9 @@ class service_category_service_provider extends StatelessWidget {
                         ),
                       ),
                       color: appcolor().greyColor,
-                      ontap: () {},
+                      ontap: () {
+                        Get.to(registration_successful_view());
+                      },
                       textcolor: appcolor().mediumGreyColor,
                     ),
                   ],
@@ -124,6 +127,7 @@ Widget serviceCategory(BuildContext context) {
         InkWell(
           onTap: () async {
             await showDialog(
+                
                 context: context,
                 builder: (BuildContext context) {
                   return service_category_item_list();

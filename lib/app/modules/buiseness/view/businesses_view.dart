@@ -81,156 +81,156 @@ class Businesses_View extends StatelessWidget {
                   // splashFactory: InkSplash.splashFactory,'[=]
                   // radius: 25,
                   onTap: () {
-                    Get.bottomSheet(
-                      Container(
-                        // padding: EdgeInsets.symmetric(
-                        //   horizontal: 15,
-                        // ),
-                        height: Get.height * 0.4,
-                        color: Colors.white,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Sort List',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 22,
-                                color: appcolor().mainColor,
-                              ),
-                            ),
-                            // z-a
-                            Row(
-                              children: [
-                                RichText(
-                                  text: TextSpan(
-                                    style: TextStyle(fontSize: 16),
-                                    children: [
-                                      TextSpan(
-                                        text: 'Business Name : ',
-                                        style: TextStyle(
-                                          color: appcolor().mainColor,
-                                        ),
-                                      ),
-                                      TextSpan(
-                                          text: 'Desc Z-A',
-                                          style: TextStyle(
-                                            color: appcolor().mediumGreyColor,
-                                          ),)
-                                    ],
-                                  ),
-                                ),
-                                Spacer(),
-                                Obx(() => Radio(
-                                  value: 'sort descending',
-                                  groupValue:
-                                      busi_controller.sorting_value.value,
-                                  onChanged: (val) {
-                                    busi_controller.sorting_value.value =
-                                        val.toString();
-                                  },
-                                ),)
-                              ],
-                            ),
+                    // Get.bottomSheet(
+                    //   Container(
+                    //     // padding: EdgeInsets.symmetric(
+                    //     //   horizontal: 15,
+                    //     // ),
+                    //     height: Get.height * 0.4,
+                    //     color: Colors.white,
+                    //     child: Column(
+                    //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    //       crossAxisAlignment: CrossAxisAlignment.start,
+                    //       children: [
+                    //         Text(
+                    //           'Sort List',
+                    //           style: TextStyle(
+                    //             fontWeight: FontWeight.bold,
+                    //             fontSize: 22,
+                    //             color: appcolor().mainColor,
+                    //           ),
+                    //         ),
+                    //         // z-a
+                    //         Row(
+                    //           children: [
+                    //             RichText(
+                    //               text: TextSpan(
+                    //                 style: TextStyle(fontSize: 16),
+                    //                 children: [
+                    //                   TextSpan(
+                    //                     text: 'Business Name : ',
+                    //                     style: TextStyle(
+                    //                       color: appcolor().mainColor,
+                    //                     ),
+                    //                   ),
+                    //                   TextSpan(
+                    //                       text: 'Desc Z-A',
+                    //                       style: TextStyle(
+                    //                         color: appcolor().mediumGreyColor,
+                    //                       ),)
+                    //                 ],
+                    //               ),
+                    //             ),
+                    //             Spacer(),
+                    //             Obx(() => Radio(
+                    //               value: 'sort descending',
+                    //               groupValue:
+                    //                   busi_controller.sorting_value.value,
+                    //               onChanged: (val) {
+                    //                 busi_controller.sorting_value.value =
+                    //                     val.toString();
+                    //               },
+                    //             ),)
+                    //           ],
+                    //         ),
 
-                            // a-z
-                            Row(
-                              children: [
-                                RichText(
-                                  text: TextSpan(
-                                    style: TextStyle(fontSize: 16),
-                                    children: [
-                                      TextSpan(
-                                        text: 'Business Name : ',
-                                        style: TextStyle(
-                                          color: appcolor().mainColor,
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text: 'Asc A-Z',
-                                        style: TextStyle(
-                                          color: appcolor().mediumGreyColor,
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Spacer(),
-                               Obx(() =>  Radio(
-                                  value: 'sort acending',
-                                  groupValue:
-                                      busi_controller.sorting_value.value,
-                                  onChanged: (val) {
-                                    busi_controller.sorting_value.value =
-                                        val.toString();
-                                  },
-                                ))
-                              ],
-                            ),
+                    //         // a-z
+                    //         Row(
+                    //           children: [
+                    //             RichText(
+                    //               text: TextSpan(
+                    //                 style: TextStyle(fontSize: 16),
+                    //                 children: [
+                    //                   TextSpan(
+                    //                     text: 'Business Name : ',
+                    //                     style: TextStyle(
+                    //                       color: appcolor().mainColor,
+                    //                     ),
+                    //                   ),
+                    //                   TextSpan(
+                    //                     text: 'Asc A-Z',
+                    //                     style: TextStyle(
+                    //                       color: appcolor().mediumGreyColor,
+                    //                     ),
+                    //                   )
+                    //                 ],
+                    //               ),
+                    //             ),
+                    //             Spacer(),
+                    //            Obx(() =>  Radio(
+                    //               value: 'sort acending',
+                    //               groupValue:
+                    //                   busi_controller.sorting_value.value,
+                    //               onChanged: (val) {
+                    //                 busi_controller.sorting_value.value =
+                    //                     val.toString();
+                    //               },
+                    //             ))
+                    //           ],
+                    //         ),
 
-                            // distance nearest to me
-                            Row(
-                              children: [
-                                RichText(
-                                    text: TextSpan(
-                                        style: TextStyle(fontSize: 16),
-                                        children: [
-                                      TextSpan(
-                                        text:
-                                            'Distance: Nearest to my location',
-                                        style: TextStyle(
-                                          color: appcolor().mainColor,
-                                        ),
-                                      ),
-                                    ])),
-                                Spacer(),
-                                Obx(() => Radio(
-                                  value: 'distance nearest to my location',
-                                  groupValue:
-                                      busi_controller.sorting_value.value,
-                                  onChanged: (val) {
-                                    busi_controller.sorting_value.value =
-                                        val.toString();
-                                  },
-                                ))
-                              ],
-                            ),
+                    //         // distance nearest to me
+                    //         Row(
+                    //           children: [
+                    //             RichText(
+                    //                 text: TextSpan(
+                    //                     style: TextStyle(fontSize: 16),
+                    //                     children: [
+                    //                   TextSpan(
+                    //                     text:
+                    //                         'Distance: Nearest to my location',
+                    //                     style: TextStyle(
+                    //                       color: appcolor().mainColor,
+                    //                     ),
+                    //                   ),
+                    //                 ])),
+                    //             Spacer(),
+                    //             Obx(() => Radio(
+                    //               value: 'distance nearest to my location',
+                    //               groupValue:
+                    //                   busi_controller.sorting_value.value,
+                    //               onChanged: (val) {
+                    //                 busi_controller.sorting_value.value =
+                    //                     val.toString();
+                    //               },
+                    //             ))
+                    //           ],
+                    //         ),
 
-                            //recentaly added
-                            Row(
-                              children: [
-                                Text(
-                                  'Recently Added ',
-                                  style: TextStyle(
-                                      color: appcolor().mainColor,
-                                      fontSize: 16),
-                                ),
-                                Icon(
-                                  Icons.arrow_upward,
-                                  size: 25,
-                                  color: appcolor().mediumGreyColor,
-                                ),
-                                Spacer(),
-                                Obx(() => Radio(
-                                  value: 'recentaly added',
-                                  groupValue:
-                                      busi_controller.sorting_value.value,
-                                  onChanged: (val) {
-                                    busi_controller.sorting_value.value =
-                                        val.toString();
-                                        print(val.toString());
-                                  },
-                                ),)
-                              ],
-                            ),
-                          ],
-                        ).paddingSymmetric(
-                          horizontal: 20,
-                          vertical: 10,
-                        ),
-                      ),
-                    );
+                    //         //recentaly added
+                    //         Row(
+                    //           children: [
+                    //             Text(
+                    //               'Recently Added ',
+                    //               style: TextStyle(
+                    //                   color: appcolor().mainColor,
+                    //                   fontSize: 16),
+                    //             ),
+                    //             Icon(
+                    //               Icons.arrow_upward,
+                    //               size: 25,
+                    //               color: appcolor().mediumGreyColor,
+                    //             ),
+                    //             Spacer(),
+                    //             Obx(() => Radio(
+                    //               value: 'recentaly added',
+                    //               groupValue:
+                    //                   busi_controller.sorting_value.value,
+                    //               onChanged: (val) {
+                    //                 busi_controller.sorting_value.value =
+                    //                     val.toString();
+                    //                     print(val.toString());
+                    //               },
+                    //             ),)
+                    //           ],
+                    //         ),
+                    //       ],
+                    //     ).paddingSymmetric(
+                    //       horizontal: 20,
+                    //       vertical: 10,
+                    //     ),
+                    //   ),
+                    // );
                   },
                   child: Container(
                     
@@ -292,7 +292,7 @@ class Businesses_View extends StatelessWidget {
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {
-                    Get.to(errandia_business_view(index: index,));
+                    // Get.to(errandia_business_view(index: index,));
                   },
                   child: Container(
                     decoration: BoxDecoration(

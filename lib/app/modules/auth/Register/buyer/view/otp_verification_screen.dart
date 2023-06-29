@@ -1,4 +1,6 @@
 import 'package:errandia/app/modules/auth/Register/registration_successful_view.dart';
+import 'package:errandia/app/modules/auth/Sign%20in/view/signin_view.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
@@ -215,6 +217,9 @@ class register_otp_verification_screen extends StatelessWidget {
                       children: [
                         TextSpan(text: 'Already have an account? '),
                         TextSpan(
+                            recognizer: TapGestureRecognizer()..onTap=()=> {
+                              Get.to(signin_view()),
+                            },
                             text: 'Sign In',
                             style: TextStyle(color: Color(0xff3c7fc6)))
                       ]),

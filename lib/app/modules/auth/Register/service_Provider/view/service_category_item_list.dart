@@ -76,6 +76,7 @@ class _service_category_item_listState
 
   Widget build(BuildContext context) {
     return AlertDialog(
+      insetPadding: EdgeInsets.zero,
       contentPadding: EdgeInsets.symmetric(
         horizontal: 5,
         vertical: 10,
