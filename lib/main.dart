@@ -19,6 +19,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import 'app/modules/products/view/manage_products_view.dart';
+
 void main()async {
   await GetStorage.init();
  

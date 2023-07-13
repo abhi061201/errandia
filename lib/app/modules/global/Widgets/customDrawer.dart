@@ -1,6 +1,7 @@
 import 'package:errandia/app/modules/Dashboard/view/dashboard_view.dart';
 
 import 'package:errandia/app/modules/global/constants/color.dart';
+import 'package:errandia/app/modules/products/view/manage_products_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
@@ -74,7 +75,10 @@ class customendDrawer extends StatelessWidget {
             drawerItemWidget(
               text: 'Manage Products',
               imagePath: 'assets/images/sidebar_icon/icon-manage-products.png',
-              callback: () {},
+              callback: () {
+                Get.back();
+                Get.to(manage_product_view());
+              },
             ),
             drawerItemWidget(
               text: 'Manage Services',

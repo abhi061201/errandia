@@ -11,6 +11,7 @@ import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
 
 import '../../buiseness/view/manage_business_view.dart';
 import '../../global/Widgets/bottomsheet_item.dart';
+import '../../products/view/manage_products_view.dart';
 
 class dashboard_view extends StatelessWidget {
   const dashboard_view({super.key});
@@ -77,7 +78,10 @@ class dashboard_view extends StatelessWidget {
                         'assets/images/sidebar_icon/icon-manage-products.png',
                     title: 'Manage Products',
                     belowtext: '0 Products',
-                    callback: () {},
+                    callback: () {
+                      Get.back();
+                      Get.to(manage_product_view());
+                    },
                   ),
                   dashboard_widget(
                     Imagepath: 'assets/images/sidebar_icon/services.png',
