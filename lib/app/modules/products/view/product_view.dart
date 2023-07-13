@@ -255,6 +255,7 @@ class _Product_viewState extends State<Product_view>
             SizedBox(
               height: Get.height * 0.015,
             ),
+            // suplier review
             Container(
               height: Get.height * 0.08,
               decoration: BoxDecoration(

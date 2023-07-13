@@ -149,13 +149,17 @@ class signin_view extends StatelessWidget {
                             ),
                             Expanded(
                               child: Container(
+                              padding: EdgeInsets.only(top: 4,),
                                 child: TextFormField(
+                                  maxLength: 10,
                                   keyboardType: TextInputType.phone,
                                   style: TextStyle(
                                     fontSize: 18,
                                   ),
-                                  decoration:
-                                      InputDecoration(border: InputBorder.none),
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    counter: Offstage(),
+                                  ),
                                 ),
                               ),
                             ),
@@ -164,7 +168,7 @@ class signin_view extends StatelessWidget {
                           ],
                         ),
                       ),
-                     
+
                       SizedBox(
                         height: Get.height * 0.25,
                       ),

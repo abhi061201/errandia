@@ -12,8 +12,9 @@ class business_item extends StatelessWidget {
     required this.location,
     required this.name,
     required this.type_of_business,
+    this.BusinessBranch_location,
   });
-
+  List? BusinessBranch_location;
   String imagepath;
   String type_of_business;
   String name;

@@ -16,201 +16,199 @@ import '../../categories/view/categories_item.dart';
 import '../../buiseness/featured_buiseness/view/featured_list_item.dart';
 import '../../recently_posted_item.dart/view/recently_posted_list.dart';
 
-
 class home_view_1 extends StatelessWidget {
-   home_view_1({super.key});
-  
+  home_view_1({super.key});
+
   @override
-  
   Widget build(BuildContext context) {
-    home_controller().atbusiness.value=false;
+    home_controller().atbusiness.value = false;
     return Stack(
-        children: [
-          Image(
-            image: AssetImage(
-              'assets/images/home_bg.png',
-            ),
-            fit: BoxFit.fill,
-            height: Get.height,
-            width: Get.width,
+      children: [
+        Image(
+          image: AssetImage(
+            'assets/images/home_bg.png',
           ),
-          ListView(
-            children: [
-              // welcome widget
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 14),
-                child: Container(
-                  height: Get.height * 0.16,
-                  width: Get.width,
-                  child: Center(
-                    child: Row(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Welcome Kris',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              'Start by running an errand',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w300),
-                            ),
-                          ],
-                        ),
-                        Spacer(),
-                        ElevatedButton(
-                            onPressed: () {
-                              Get.to(run_an_errand());
-                            },
-                            child: Text(
-                              'Run an Errand',
-                              style: TextStyle(
-                                  color: appcolor().mainColor,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12),
-                            ),
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white)),
-                      ],
-                    ),
+          fit: BoxFit.fill,
+          height: Get.height,
+          width: Get.width,
+        ),
+        ListView(
+          children: [
+            // welcome widget
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 14),
+              child: Container(
+                height: Get.height * 0.16,
+                width: Get.width,
+                child: Center(
+                  child: Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Welcome Kris',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            'Start by running an errand',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w300),
+                          ),
+                        ],
+                      ),
+                      Spacer(),
+                      ElevatedButton(
+                          onPressed: () {
+                            Get.to(run_an_errand());
+                          },
+                          child: Text(
+                            'Run an Errand',
+                            style: TextStyle(
+                                color: appcolor().mainColor,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white)),
+                    ],
                   ),
                 ),
               ),
+            ),
 
-              // location container
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 6),
-                color: appcolor().skyblueColor,
-                height: Get.height * 0.06,
-                child: Row(
-                  children: [
-                    Image(
-                      image: AssetImage(
-                        'assets/images/refresh_location.png',
+            // location container
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 6),
+              color: appcolor().skyblueColor,
+              height: Get.height * 0.06,
+              child: Row(
+                children: [
+                  Image(
+                    image: AssetImage(
+                      'assets/images/refresh_location.png',
+                    ),
+                    color: appcolor().mainColor,
+                  ),
+                  Expanded(
+                    child: Container(
+                      child: Text(
+                        'Update Buiseness Location'.tr,
+                        style: TextStyle(
+                            color: appcolor().mainColor, fontSize: 12),
                       ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Verify Location'.tr,
+                      style: TextStyle(
+                        color: appcolor().mainColor,
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            // categories widget
+
+            Container(
+              color: Colors.white,
+              child: Row(
+                children: [
+                  Text(
+                    'Categories',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
                       color: appcolor().mainColor,
                     ),
-                    Text(
-                      'Update Buiseness Location',
-                      style:
-                          TextStyle(color: appcolor().mainColor, fontSize: 15),
-                    ),
-                    Spacer(),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Verify Location',
-                        style: TextStyle(
-                          color: appcolor().mainColor,
-                          fontSize: 10,
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.underline,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+                  ),
+                  Spacer(),
+                  TextButton(
+                    onPressed: () {
+                      Get.to(categories_view());
+                    },
+                    child: Text('See All'),
+                  ),
+                ],
+              ).paddingSymmetric(horizontal: 20),
+            ),
 
-              // categories widget
+            Categories_List_Widget(),
 
-              Container(
-                color: Colors.white,
-                child: Row(
-                  children: [
-                    Text(
-                      'Categories',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        color: appcolor().mainColor,
-                      ),
+            // Featured Businesses
+
+            Container(
+              color: Colors.white,
+              child: Row(
+                children: [
+                  Text(
+                    'Featured Businesses',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: appcolor().mainColor,
                     ),
-                    Spacer(),
-                    TextButton(
-                      onPressed: () {
-                        Get.to(categories_view());
-                      },
-                      child: Text('See All'),
+                  ),
+                  Spacer(),
+                  TextButton(
+                    onPressed: () {
+                      Get.to(Ui_23());
+                    },
+                    child: Text('See All'),
+                  ),
+                ],
+              ).paddingSymmetric(horizontal: 20),
+            ),
+
+            Featured_Businesses_List(),
+
+            Container(
+              color: Colors.white,
+              child: Row(
+                children: [
+                  Text(
+                    'Recently Posted Errands',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: appcolor().mainColor,
                     ),
-                  ],
-                ).paddingSymmetric(horizontal: 20),
-              ),
+                  ),
+                  Spacer(),
+                  TextButton(
+                    onPressed: () {
+                      Get.to(Product_view());
+                    },
+                    child: Text('See All'),
+                  ),
+                ],
+              ).paddingSymmetric(horizontal: 20),
+            ),
 
-              Categories_List_Widget(),
-
-              // Featured Businesses
-
-              Container(
-                color: Colors.white,
-                child: Row(
-                  children: [
-                    Text(
-                      'Featured Businesses',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        color: appcolor().mainColor,
-                      ),
-                    ),
-                    Spacer(),
-                    TextButton(
-                      onPressed: () {
-                        Get.to(Ui_23());
-                      },
-                      child: Text('See All'),
-                    ),
-                  ],
-                ).paddingSymmetric(horizontal: 20),
-              ),
-
-              Featured_Businesses_List(),
-
-              Container(
-                color: Colors.white,
-                child: Row(
-                  children: [
-                    Text(
-                      'Recently Posted Errands',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        color: appcolor().mainColor,
-                      ),
-                    ),
-                    Spacer(),
-                    TextButton(
-                      onPressed: () {
-                        Get.to(Product_view());
-                      },
-                      child: Text('See All'),
-                    ),
-                  ],
-                ).paddingSymmetric(horizontal: 20),
-              ),
-
-              Recently_posted_items_Widget(),
-              Container(
-                height: Get.height * 0.05,
-                color: Colors.white,
-              ),
-            ],
-          ),
-        ],
-      );
- 
+            Recently_posted_items_Widget(),
+            Container(
+              height: Get.height * 0.05,
+              color: Colors.white,
+            ),
+          ],
+        ),
+      ],
+    );
   }
 }
-
-
 
 Widget Categories_List_Widget() {
   return Container(

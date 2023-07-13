@@ -27,9 +27,11 @@ class userAgreementContainer extends StatelessWidget {
           child: Column(
         children: [
           Text(
-              'website or any application we make available via an app store (the “Platform”), and the corresponding services available through the Platform (the “Services”). Below we set out our privacy policy, which will govern the way in which we process any persona information that you provide to us. We will notify you if the way in which we process you information is tochange at any time. \nPlease read this privacy policy carefully as it contains important information on who we are an how we collect, store, use and share your information. By accessing the Platform or using our\n Services or otherwise indicating your consent, you agree to, and where required, consent to the collection, use and transfer of your information as set out in this policy. If you do not accept th terms of this policy, you must not use the Platform and/or the Services.This privacy policy')
+            'Website or any application we make available via an app store (the “Platform”), and the corresponding services available through the Platform (the “Services”). Below we set out our privacy policy, which will govern the way in which we process any persona information that you provide to us. We will notify you if the way in which we process you information is tochange at any time.Please read this privacy policy carefully as it contains important information on who we are an how we collect, store, use and share your information. By accessing the Platform or using our Services or otherwise indicating your consent, you agree to, and where required, consent to the collection, use and transfer of your information as set out in this policy. If you do not accept th terms of this policy, you must not use the Platform and/or the Services.This privacy policy',
+            textAlign: TextAlign.justify,
+          ),
         ],
-      )),
+      ),),
       actions: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.start,

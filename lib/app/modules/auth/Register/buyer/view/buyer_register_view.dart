@@ -148,13 +148,17 @@ class buyer_register_view extends StatelessWidget {
                             ),
                             Expanded(
                               child: Container(
+                                padding: EdgeInsets.symmetric(vertical: 8,),
                                 child: TextFormField(
+                                  maxLength: 10,
                                   keyboardType: TextInputType.phone,
                                   style: TextStyle(
                                     fontSize: 18,
                                   ),
-                                  decoration:
-                                      InputDecoration(border: InputBorder.none),
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    counter: Offstage(),
+                                  ),
                                 ),
                               ),
                             ),
@@ -286,4 +290,3 @@ class buyer_register_view extends StatelessWidget {
     );
   }
 }
-

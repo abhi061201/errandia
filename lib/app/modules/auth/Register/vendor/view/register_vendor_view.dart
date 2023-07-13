@@ -64,7 +64,6 @@ class register_vendor_view extends StatelessWidget {
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    
                   ],
                 ),
               ),
@@ -194,13 +193,17 @@ class register_vendor_view extends StatelessWidget {
                             ),
                             Expanded(
                               child: Container(
+                                padding: EdgeInsets.only(top: 1),
                                 child: TextFormField(
+                                  maxLength: 10,
                                   keyboardType: TextInputType.phone,
                                   style: TextStyle(
                                     fontSize: 18,
                                   ),
-                                  decoration:
-                                      InputDecoration(border: InputBorder.none),
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    counter: Offstage(),
+                                  ),
                                 ),
                               ),
                             ),
@@ -373,15 +376,18 @@ class register_vendor_view extends StatelessWidget {
                               ),
                               children: [
                                 TextSpan(
+                                  
                                   text:
                                       'By registering, you agree to the Errandia\'s ',
                                 ),
                                 TextSpan(
                                   recognizer: TapGestureRecognizer()
-                                    ..onTap = ()async {
-                                      await showDialog(context: context, builder: (BuildContext ctx){
-                                        return userAgreementContainer();
-                                      });
+                                    ..onTap = () async {
+                                      await showDialog(
+                                          context: context,
+                                          builder: (BuildContext ctx) {
+                                            return userAgreementContainer();
+                                          });
                                       debugPrint(
                                         'user agreement printed',
                                       );
@@ -464,9 +470,8 @@ class register_vendor_view extends StatelessWidget {
                             },
                           text: 'Sign In',
                           style: TextStyle(
-                            color: Color(0xff3c7fc6),
-                            fontWeight: FontWeight.bold
-                          ),
+                              color: Color(0xff3c7fc6),
+                              fontWeight: FontWeight.bold),
                         )
                       ]),
                 ),

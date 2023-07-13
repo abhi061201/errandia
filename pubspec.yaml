@@ -46,7 +46,12 @@ dependencies:
   font_awesome_flutter: ^10.4.0
   #for share from share button
   share: ^2.0.4
-  
+
+  #for url launcher
+  url_launcher: ^6.1.11
+
+  #for image pick
+  image_picker: ^1.0.0  
 
 
 dev_dependencies:

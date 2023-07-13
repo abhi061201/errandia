@@ -1,4 +1,5 @@
 import 'package:errandia/app/modules/buiseness/controller/business_controller.dart';
+import 'package:errandia/app/modules/buiseness/view/add_business_view.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,7 +19,9 @@ class manage_business_view extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: InkWell(
-        onTap: () {},
+        onTap: () {
+          Get.off(add_business_view());
+        },
         child: new Container(
           width: Get.width * 0.47,
           padding: EdgeInsets.all(15),
@@ -183,13 +186,16 @@ Widget allBusiness() {
                         // backgroundColor: Colors.white,
                         Container(
                           padding: EdgeInsets.symmetric(horizontal: 20),
-                          height: Get.height * 0.5,
+                          
                           color: Colors.white,
-                          child: Column(
+                          child: Wrap(
+                            crossAxisAlignment: WrapCrossAlignment.center,
                             children: [
-                              Icon(
-                                Icons.horizontal_rule,
-                                size: 25,
+                              Center(
+                                child: Icon(
+                                  Icons.horizontal_rule,
+                                  size: 25,
+                                ),
                               ),
                               // Text(index.toString()),
                               bottomSheetWidgetitem(
@@ -460,13 +466,16 @@ Widget Published() {
                         // backgroundColor: Colors.white,
                         Container(
                           padding: EdgeInsets.symmetric(horizontal: 20),
-                          height: 250,
+                          // height: 250,
                           color: Colors.white,
-                          child: Column(
+                          child: Wrap(
+                            crossAxisAlignment: WrapCrossAlignment.center,
                             children: [
-                              Icon(
-                                Icons.horizontal_rule,
-                                size: 25,
+                              Center(
+                                child: Icon(
+                                  Icons.horizontal_rule,
+                                  size: 25,
+                                ),
                               ),
                               // Text(index.toString()),
                               bottomSheetWidgetitem(
@@ -732,13 +741,16 @@ Widget Trashed() {
                         // backgroundColor: Colors.white,
                         Container(
                           padding: EdgeInsets.symmetric(horizontal: 20),
-                          height: 200,
+                          
                           color: Colors.white,
-                          child: Column(
+                          child: Wrap(
+                            crossAxisAlignment: WrapCrossAlignment.center,
                             children: [
-                              Icon(
-                                Icons.horizontal_rule,
-                                size: 25,
+                              Center(
+                                child: Icon(
+                                  Icons.horizontal_rule,
+                                  size: 25,
+                                ),
                               ),
                               // Text(index.toString()),
                               bottomSheetWidgetitem(
@@ -868,6 +880,7 @@ Widget Trashed() {
                                                     ),
                                                     ontap: () {
                                                       Get.back();
+                                                      
                                                     },
                                                     color: appcolor().redColor,
                                                   ),

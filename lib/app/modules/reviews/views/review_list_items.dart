@@ -8,6 +8,7 @@ class review_list_item {
   double? rating_value;
   String? review_description;
   String? image_path;
+  List<String> ?imageList;
 
   review_list_item({
     @required this.name,
@@ -16,5 +17,6 @@ class review_list_item {
     @required this.review_description,
     this.image_path,
     this.customer_image_path,
+    this.imageList,
   }) {}
 }

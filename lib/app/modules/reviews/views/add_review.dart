@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:errandia/app/ImagePicker/imagePickercontroller.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -12,6 +15,7 @@ class add_review_view extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    imagePickercontroller imageController = Get.put(imagePickercontroller());
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -141,105 +145,125 @@ class add_review_view extends StatelessWidget {
               Divider(
                 color: appcolor().mediumGreyColor,
               ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Icon(
-                          FontAwesomeIcons.solidImage,
-                        ),
-                        SizedBox(
-                          width: Get.width * 0.03,
-                        ),
-                        Text(
-                          'Add Image',
-                          style: TextStyle(fontSize: 16),
-                        ),
-                        Spacer(),
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            FontAwesomeIcons.pen,
-                            color: appcolor().blueColor,
-                          ),
-                        )
-                      ],
-                    ),
-                    Stack(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
+              Obx(
+                () => imageController.image_path.isEmpty
+                    ? Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                        child: Column(
                           children: [
-                            Container(
-                              margin: EdgeInsets.symmetric(horizontal: 5),
-                              height: Get.height * 0.2,
-                              width: Get.width * 0.4,
-                              color: const Color.fromARGB(255, 234, 231, 231),
-                              child: Center(
-                                child: Text(
-                                  'image',
+                            Row(
+                              children: [
+                                Icon(
+                                  FontAwesomeIcons.solidImage,
                                 ),
-                              ),
+                                SizedBox(
+                                  width: Get.width * 0.03,
+                                ),
+                                Text(
+                                  'Add Image',
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                                Spacer(),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    FontAwesomeIcons.pen,
+                                    color: appcolor().blueColor,
+                                  ),
+                                )
+                              ],
                             ),
-                            Container(
-                              margin: EdgeInsets.symmetric(horizontal: 5),
-                              height: Get.height * 0.2,
-                              width: Get.width * 0.4,
-                              color: const Color.fromARGB(255, 234, 231, 231),
-                              child: Center(
-                                child: Text(
-                                  'image',
+                            Stack(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 5),
+                                      height: Get.height * 0.2,
+                                      width: Get.width * 0.4,
+                                      color: const Color.fromARGB(
+                                          255, 234, 231, 231),
+                                      child: Center(
+                                        child: Text(
+                                          'image',
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin:
+                                          EdgeInsets.symmetric(horizontal: 5),
+                                      height: Get.height * 0.2,
+                                      width: Get.width * 0.4,
+                                      color: const Color.fromARGB(
+                                          255, 234, 231, 231),
+                                      child: Center(
+                                        child: Text(
+                                          'image',
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ),
+                                // Row(
+                                //   // crossAxisAlignment: CrossAxisAlignment.center,
+                                //   mainAxisAlignment: MainAxisAlignment.center,
+                                //   children: [
+                                //     SizedBox(
+                                //     ),
+                                //     InkWell(
+                                //       onTap: () {},
+                                //       child: Container(
+                                //         width: Get.width * 0.2,
+                                //         color: appcolor().greenColor,
+                                //         height: Get.height * 0.05,
+                                //         child: Center(
+                                //           child: Text(
+                                //             'Edit',
+                                //           ),
+                                //         ),
+                                //       ),
+                                //     ),
+                                //     Container(
+                                //       height: Get.height * 0.05,
+                                //       color: Colors.black,
+                                //       width: Get.width * 0.001,
+                                //     ),
+                                //     InkWell(
+                                //       onTap: () {},
+                                //       child: Container(
+                                //         width: Get.width * 0.2,
+                                //         color: appcolor().greyColor,
+                                //         height: Get.height * 0.05,
+                                //         child: Center(
+                                //           child: Text(
+                                //             'Remove',
+                                //           ),
+                                //         ),
+                                //       ),
+                                //     ),
+                                //   ],
+                                // )
+                              ],
                             ),
                           ],
                         ),
-                        // Row(
-                        //   // crossAxisAlignment: CrossAxisAlignment.center,
-                        //   mainAxisAlignment: MainAxisAlignment.center,
-                        //   children: [
-                        //     SizedBox(
-                        //     ),
-                        //     InkWell(
-                        //       onTap: () {},
-                        //       child: Container(
-                        //         width: Get.width * 0.2,
-                        //         color: appcolor().greenColor,
-                        //         height: Get.height * 0.05,
-                        //         child: Center(
-                        //           child: Text(
-                        //             'Edit',
-                        //           ),
-                        //         ),
-                        //       ),
-                        //     ),
-                        //     Container(
-                        //       height: Get.height * 0.05,
-                        //       color: Colors.black,
-                        //       width: Get.width * 0.001,
-                        //     ),
-                        //     InkWell(
-                        //       onTap: () {},
-                        //       child: Container(
-                        //         width: Get.width * 0.2,
-                        //         color: appcolor().greyColor,
-                        //         height: Get.height * 0.05,
-                        //         child: Center(
-                        //           child: Text(
-                        //             'Remove',
-                        //           ),
-                        //         ),
-                        //       ),
-                        //     ),
-                        //   ],
-                        // )
-                      ],
+                      )
+                    :Container(
+                      padding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                      height:300 ,
+                      child: ListView(
+                        children: [
+
+                        ],
+                      ),
                     ),
-                  ],
-                ),
               ),
+
+              // add more images
               blockButton(
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -280,12 +304,20 @@ class add_review_view extends StatelessWidget {
                 ),
               ),
               Divider(),
-              SizedBox(height: Get.height*0.02,),
+              SizedBox(
+                height: Get.height * 0.02,
+              ),
               blockButton(
-                  title: Text('Submit Review', style: TextStyle(color: Colors.white),),
-                  ontap: () {},
-                  color: appcolor().mainColor,),
-                  SizedBox(height: Get.height*0.03,),
+                title: Text(
+                  'Submit Review',
+                  style: TextStyle(color: Colors.white),
+                ),
+                ontap: () {},
+                color: appcolor().mainColor,
+              ).paddingSymmetric(horizontal: 15,),
+              SizedBox(
+                height: Get.height * 0.03,
+              ),
             ],
           )
         ],

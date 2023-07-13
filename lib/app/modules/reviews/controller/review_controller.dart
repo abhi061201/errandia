@@ -12,6 +12,7 @@ class review_controller extends GetxController {
     String? review_description,
     String? image_path,
     String? customer_image_path,
+    List<String> ? imageList,
   }) async {
     var review_item = review_list_item(
       name: name,
@@ -19,7 +20,8 @@ class review_controller extends GetxController {
       review_description: review_description,
       date: date,
       image_path: image_path,
-      customer_image_path: customer_image_path
+      customer_image_path: customer_image_path,
+      imageList: imageList,
     );
     reviewList.add(review_item);
   }

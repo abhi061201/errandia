@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:errandia/app/ImagePicker/imagePickercontroller.dart';
 import 'package:errandia/app/modules/auth/Register/buyer/view/otp_verification_screen.dart';
 import 'package:errandia/app/modules/auth/Register/registration_successful_view.dart';
 import 'package:errandia/app/modules/auth/Register/service_Provider/view/service_category_screen_service_provider.dart';
@@ -12,8 +15,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
 class register_serviceprovider_view extends StatelessWidget {
-  const register_serviceprovider_view({super.key});
-
+  register_serviceprovider_view({super.key});
+  imagePickercontroller image_pick_controller =
+      Get.put(imagePickercontroller());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -167,19 +171,34 @@ class register_serviceprovider_view extends StatelessWidget {
                         height: Get.height * 0.09,
                         child: Row(
                           children: [
-                            Container(
-                              width: Get.width * 0.2,
-                              child: Card(
-                                child: Image(
-                                  image: AssetImage(
-                                    'assets/images/person_avatar.png',
-                                  ),
+                            Obx(
+                              () => Container(
+                                width: Get.width * 0.2,
+                                child: Card(
+                                  child: image_pick_controller
+                                          .image_path.isEmpty
+                                      ? Image(
+                                          image: AssetImage(
+                                            'assets/images/person_avatar.png',
+                                          ),
+                                        )
+                                      : Image(
+                                          image: FileImage(
+                                            File(
+                                              image_pick_controller.image_path
+                                                  .toString(),
+                                            ),
+                                          ),
+                                          fit: BoxFit.fill,
+                                        ),
                                 ),
                               ),
                             ),
                             InkWell(
                               onTap: () {
                                 // here image picker will be implemented
+
+                                image_pick_controller.getImagefromgallery();
                               },
                               child: Card(
                                 color: Color(0xffe0f6fe),
@@ -271,13 +290,19 @@ class register_serviceprovider_view extends StatelessWidget {
                             ),
                             Expanded(
                               child: Container(
+                                padding: EdgeInsets.symmetric(
+                                  vertical: 1,
+                                ),
                                 child: TextFormField(
+                                  maxLength: 10,
                                   keyboardType: TextInputType.phone,
                                   style: TextStyle(
                                     fontSize: 18,
                                   ),
-                                  decoration:
-                                      InputDecoration(border: InputBorder.none),
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    counter: Offstage(),
+                                  ),
                                 ),
                               ),
                             ),
@@ -519,7 +544,6 @@ class register_serviceprovider_view extends StatelessWidget {
                           ),
                         ),
                       ),
-                    
                     ],
                   ),
                 ),
