@@ -6,6 +6,7 @@ import 'package:errandia/app/modules/categories/view/categories.dart';
 import 'package:errandia/app/modules/home/controller/home_controller.dart';
 import 'package:errandia/app/modules/home/view/home_view.dart';
 import 'package:errandia/app/modules/home/view/home_view_1.dart';
+import 'package:errandia/app/modules/products/view/filter_product_view.dart';
 import 'package:errandia/app/modules/products/view/products_send_enquiry.dart';
 import 'package:errandia/app/modules/reviews/views/add_review.dart';
 import 'package:errandia/app/modules/splashScreen/splash_screen.dart';

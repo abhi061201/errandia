@@ -23,6 +23,7 @@ class home_view_1 extends StatelessWidget {
   Widget build(BuildContext context) {
     home_controller().atbusiness.value = false;
     return Stack(
+      
       children: [
         Image(
           image: AssetImage(
@@ -33,6 +34,7 @@ class home_view_1 extends StatelessWidget {
           width: Get.width,
         ),
         ListView(
+          // physics: (),
           children: [
             // welcome widget
             Padding(

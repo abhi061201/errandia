@@ -1,6 +1,9 @@
+
+
 import 'package:errandia/app/modules/buiseness/controller/business_controller.dart';
 import 'package:errandia/app/modules/buiseness/view/add_business_view.dart';
 import 'package:errandia/app/modules/products/controller/manage_products_controller.dart';
+import 'package:errandia/app/modules/products/view/filter_product_view.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -13,12 +16,19 @@ import '../../global/Widgets/bottomsheet_item.dart';
 import '../../global/Widgets/customDrawer.dart';
 import '../../global/constants/color.dart';
 
+manage_product_controller manageProductController =
+    Get.put(manage_product_controller());
+
 class manage_product_view extends StatelessWidget {
   manage_product_view({super.key});
   manage_product_tabController pcontroller =
       Get.put(manage_product_tabController());
   @override
   Widget build(BuildContext context) {
+    void opendrawer(){
+      Scaffold.of(context).openEndDrawer();
+    }
+    
     return Scaffold(
       floatingActionButton: InkWell(
         onTap: () {
@@ -47,7 +57,10 @@ class manage_product_view extends StatelessWidget {
           ),
         ),
       ),
-      endDrawer: customendDrawer(),
+      // endDrawer: Drawer(
+      //   backgroundColor: Colors.white,
+      //   child: Container(),
+      // ),
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 2,
@@ -70,6 +83,9 @@ class manage_product_view extends StatelessWidget {
           color: appcolor().mediumGreyColor,
           size: 30,
         ),
+        actions: [
+
+        ],
       ),
       body: Column(
         children: [
@@ -121,19 +137,185 @@ class manage_product_view extends StatelessWidget {
         ],
       ),
     );
+
+    
   }
+
+
 }
 
 Widget allProducts() {
   return Column(
     children: [
-      filter_sort_container(),
+      filter_sort_container(
+        () {
+          Get.to(filter_product_view());
+        },
+        () {
+          Get.bottomSheet(
+            Container(
+              color: const Color.fromRGBO(255, 255, 255, 1),
+              child: Wrap(
+                crossAxisAlignment: WrapCrossAlignment.start,
+                children: [
+                  Text(
+                    'Sort List',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22,
+                      color: appcolor().mainColor,
+                    ),
+                  ),
+                  // z-a
+                  Row(
+                    children: [
+                      RichText(
+                        text: TextSpan(
+                          style: TextStyle(fontSize: 16),
+                          children: [
+                            TextSpan(
+                              text: 'Product Name : ',
+                              style: TextStyle(
+                                color: appcolor().mainColor,
+                              ),
+                            ),
+                            TextSpan(
+                              text: 'Desc Z-A',
+                              style: TextStyle(
+                                color: appcolor().mediumGreyColor,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Spacer(),
+                      Obx(
+                        () => Radio(
+                          value: 'sort descending',
+                          groupValue: manageProductController
+                              .allProducts_sort_group_value.value,
+                          onChanged: (val) {
+                            manageProductController.allProducts_sort_group_value
+                                .value = val.toString();
+                          },
+                        ),
+                      )
+                    ],
+                  ),
+
+                  // a-z
+                  Row(
+                    children: [
+                      RichText(
+                        text: TextSpan(
+                          style: TextStyle(fontSize: 16),
+                          children: [
+                            TextSpan(
+                              text: 'Product Name : ',
+                              style: TextStyle(
+                                color: appcolor().mainColor,
+                              ),
+                            ),
+                            TextSpan(
+                              text: 'Asc A-Z',
+                              style: TextStyle(
+                                color: appcolor().mediumGreyColor,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Spacer(),
+                      Obx(() => Radio(
+                            value: 'sort ascending',
+                            groupValue: manageProductController
+                                .allProducts_sort_group_value.value,
+                            onChanged: (val) {
+                              manageProductController
+                                  .allProducts_sort_group_value
+                                  .value = val.toString();
+                            },
+                          ))
+                    ],
+                  ),
+
+                  // distance nearest to me
+                  Row(
+                    children: [
+                      RichText(
+                          text: TextSpan(
+                              style: TextStyle(fontSize: 16),
+                              children: [
+                            TextSpan(
+                              text: 'Date',
+                              style: TextStyle(
+                                color: appcolor().mainColor,
+                              ),
+                            ),
+                            TextSpan(
+                              text: 'Last Modified',
+                            ),
+                          ])),
+                      Spacer(),
+                      Obx(() => Radio(
+                            value: 'Date Last modified ',
+                            groupValue: manageProductController
+                                .allProducts_sort_group_value.value,
+                            onChanged: (val) {
+                              manageProductController
+                                  .allProducts_sort_group_value
+                                  .value = val.toString();
+                            },
+                          ))
+                    ],
+                  ),
+
+                  //recentaly added
+                  Row(
+                    children: [
+                      Text(
+                        'Price',
+                        style: TextStyle(
+                            color: appcolor().mainColor, fontSize: 16),
+                      ),
+                      Icon(
+                        Icons.arrow_upward,
+                        size: 25,
+                        color: appcolor().mediumGreyColor,
+                      ),
+                      Spacer(),
+                      Obx(
+                        () => Radio(
+                          value: 'Price',
+                          groupValue: manageProductController
+                              .allProducts_sort_group_value.value,
+                          onChanged: (val) {
+                            manageProductController.allProducts_sort_group_value
+                                .value = val.toString();
+                            print(val.toString());
+                          },
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ).paddingSymmetric(
+                horizontal: 20,
+                vertical: 10,
+              ),
+            ),
+          );
+        },
+        () {
+         
+        },
+      ),
       SizedBox(
         height: Get.height * 0.01,
       ),
       Expanded(
         child: ListView.builder(
-          itemCount: 100,
+          itemCount: 10,
           itemBuilder: (context, index) {
             return Container(
               padding: EdgeInsets.all(
@@ -181,12 +363,20 @@ Widget allProducts() {
                           fontSize: 16,
                         ),
                       ),
-                      Text(
-                        'Molyko, Buea',
-                        style: TextStyle(
-                          color: appcolor().mediumGreyColor,
-                          fontSize: 13,
-                        ),
+                      Row(
+                        children: [
+                          Text(
+                            'XAF 20',
+                            style: TextStyle(
+                              color: appcolor().mediumGreyColor,
+                              fontSize: 13,
+                            ),
+                          ),
+                          SizedBox(
+                            width: Get.width * 0.1,
+                          ),
+                          publish_draft_widget(index.isEven, index),
+                        ],
                       ),
                     ],
                   ),
@@ -279,7 +469,11 @@ Widget allProducts() {
 Widget Published() {
   return Column(
     children: [
-      filter_sort_container(),
+      filter_sort_container(
+        () {},
+        () {},
+        () {},
+      ),
       //   SizedBox(
       //     height: Get.height * 0.01,
       //   ),
@@ -551,7 +745,11 @@ Widget Published() {
 Widget Trashed() {
   return Column(
     children: [
-      filter_sort_container(),
+      filter_sort_container(
+        () {},
+        () {},
+        () {},
+      ),
       SizedBox(
         height: Get.height * 0.01,
       ),
@@ -849,14 +1047,18 @@ Widget Trashed() {
   );
 }
 
-Widget filter_sort_container() {
+Widget filter_sort_container(
+  Callback filter_button,
+  Callback sort_button,
+  Callback search_button,
+) {
   return Container(
     // width: Get.width*0.4,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         InkWell(
-          onTap: () {},
+          onTap: filter_button,
           child: Container(
             width: Get.width * 0.35,
             decoration: BoxDecoration(
@@ -884,7 +1086,7 @@ Widget filter_sort_container() {
           ),
         ),
         InkWell(
-          onTap: () {},
+          onTap: sort_button,
           child: Container(
             width: Get.width * 0.35,
             decoration: BoxDecoration(
@@ -912,7 +1114,7 @@ Widget filter_sort_container() {
           ),
         ),
         InkWell(
-          onTap: () {},
+          onTap: search_button,
           child: Container(
             // width: Get.width*0.4,
 
@@ -974,5 +1176,27 @@ Widget managebottomSheetWidgetitem({
         ),
       ],
     ).paddingSymmetric(vertical: 15),
+  );
+}
+
+Widget publish_draft_widget(bool publish, int index) {
+  return Container(
+    padding: EdgeInsets.symmetric(
+      horizontal: 5,
+      vertical: 2,
+    ),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(10),
+      color: publish == true
+          ? const Color.fromARGB(255, 218, 246, 187)
+          : appcolor().greyColor,
+    ),
+    child: Text(
+      publish == true ? 'Publish' : 'Draft',
+      style: TextStyle(
+        fontSize: 12,
+        color: publish == true ? Colors.green : Colors.grey,
+      ),
+    ),
   );
 }

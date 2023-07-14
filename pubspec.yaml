@@ -53,6 +53,9 @@ dependencies:
   #for image pick
   image_picker: ^1.0.0  
 
+  #for date pick
+  syncfusion_flutter_datepicker:
+
 
 dev_dependencies:
   flutter_test:
