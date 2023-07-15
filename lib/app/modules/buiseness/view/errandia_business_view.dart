@@ -176,7 +176,10 @@ class errandia_business_view extends StatelessWidget {
                       ),
                     ],
                   ),
-                  ontap: () {},
+                  ontap: () async
+                  {
+                    
+                  },
                   color: appcolor().mainColor,
                 ),
                 SizedBox(
@@ -234,6 +237,9 @@ class errandia_business_view extends StatelessWidget {
                     Text('Follow us on social media'),
                     // fb
                     InkWell(
+                      onTap: ()async{
+                        controller.mylaunchUrl('www.bmdu.net');
+                      },
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(
@@ -273,6 +279,9 @@ class errandia_business_view extends StatelessWidget {
 
                     // twitter
                     InkWell(
+                      onTap: ()async{
+                        controller.mylaunchUrl('www.instagram.com');
+                      },
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(

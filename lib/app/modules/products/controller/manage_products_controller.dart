@@ -9,18 +9,13 @@ class manage_product_controller extends GetxController {
 
 class manage_product_tabController extends GetxController
     with GetSingleTickerProviderStateMixin {
-  List<Widget> myTabs = [
-    allProducts(),
-    Published(),
-    Trashed(),
-    Trashed(),
-  ];
+ 
 
   late TabController tabController;
   @override
   void onInit() {
     // TODO: implement onInit
-    tabController = TabController(length: myTabs.length, vsync: this);
+    tabController = TabController(length:4, vsync: this);
     super.onInit();
   }
 

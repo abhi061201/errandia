@@ -54,7 +54,7 @@ class ErrandiaApp extends StatelessWidget {
           
         ),
       ),
-      home: splash_screen(),
+      home: manage_product_view(),
     );
   }
 }
