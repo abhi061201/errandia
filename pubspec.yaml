@@ -56,6 +56,9 @@ dependencies:
   #for date pick
   syncfusion_flutter_datepicker:
 
+  #read more text
+  readmore: ^2.2.0
+
 
 dev_dependencies:
   flutter_test:
