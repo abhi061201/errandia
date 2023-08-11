@@ -1,4 +1,5 @@
 import 'package:errandia/app/modules/home/controller/home_controller.dart';
+import 'package:errandia/app/modules/setting/view/setting_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -39,7 +40,9 @@ AppBar appbar() {
         color: appcolor().mediumGreyColor,
       ),
       IconButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.to(()=> setting_view());
+        },
         icon: Icon(
           Icons.settings,
           size: 30,

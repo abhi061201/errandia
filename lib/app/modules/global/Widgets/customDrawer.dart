@@ -1,7 +1,15 @@
+import 'package:errandia/app/modules/Billing/view/Billing_history_view.dart';
 import 'package:errandia/app/modules/Dashboard/view/dashboard_view.dart';
+import 'package:errandia/app/modules/Enquiries/view/enquiries_view.dart';
+import 'package:errandia/app/modules/errands/view/errand_view.dart';
+import 'package:errandia/app/modules/following/view/following_view.dart';
 
 import 'package:errandia/app/modules/global/constants/color.dart';
+import 'package:errandia/app/modules/manage_review/view/manage_review_view.dart';
 import 'package:errandia/app/modules/products/view/manage_products_view.dart';
+import 'package:errandia/app/modules/services/view/manage_service_view.dart';
+import 'package:errandia/app/modules/setting/view/setting_view.dart';
+import 'package:errandia/app/modules/subscribers/view/subscriber_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
@@ -53,6 +61,7 @@ class customendDrawer extends StatelessWidget {
               imagePath: 'assets/images/sidebar_icon/add_products.png',
               callback: () {
                 Get.back();
+                
               },
             ),
             Divider(
@@ -70,21 +79,25 @@ class customendDrawer extends StatelessWidget {
               text: 'Errands',
               imagePath:
                   'assets/images/sidebar_icon/icon-profile-errands.png',
-              callback: () {},
+              callback: () {
+                Get.back();
+                Get.to(errand_view());
+              },
             ),
             drawerItemWidget(
               text: 'Manage Products',
               imagePath: 'assets/images/sidebar_icon/icon-manage-products.png',
               callback: () {
                 Get.back();
-                Get.to(manage_product_view());
+                Get.to(()=>manage_product_view());
               },
             ),
             drawerItemWidget(
               text: 'Manage Services',
               imagePath: 'assets/images/sidebar_icon/services.png',
               callback: () {
-                
+                Get.back();
+                Get.to(()=>manage_service_view());
               },
             ),
             drawerItemWidget(
@@ -93,33 +106,48 @@ class customendDrawer extends StatelessWidget {
               callback: () {
                 Get.back();
                 // Get.offAll(Home_view());
-                Get.to(manage_business_view());
+                Get.to(()=>manage_business_view());
               },
             ),
             drawerItemWidget(
               text: 'Enquiries',
               imagePath: 'assets/images/sidebar_icon/enquiry.png',
-              callback: () {},
+              callback: () {
+                Get.back();
+                Get.to(()=>enquireis_view(), popGesture: true);
+              },
             ),
             drawerItemWidget(
               text: 'Subscribers',
               imagePath: 'assets/images/sidebar_icon/icon-profile-subscribers.png',
-              callback: () {},
+              callback: () {
+                Get.back();
+                Get.to(subscriber_view());
+              },
             ),
             drawerItemWidget(
               text: 'Following',
               imagePath: 'assets/images/sidebar_icon/icon-profile-following.png',
-              callback: () {},
+              callback: () {
+                Get.back();
+                Get.to(()=>following_view());
+              },
             ),
             drawerItemWidget(
               text: 'Reviews',
               imagePath: 'assets/images/sidebar_icon/icon-profile-reviews.png',
-              callback: () {},
+              callback: () {
+                Get.back();
+                Get.to(()=>manage_review_view());
+              },
             ),
             drawerItemWidget(
               text: 'Billing History',
               imagePath: 'assets/images/sidebar_icon/icon-billing-history.png',
-              callback: () {},
+              callback: () {
+                Get.back();
+                Get.to(()=>billing_history_view());
+              },
             ),
             SizedBox(
               height: 5,
@@ -128,7 +156,10 @@ class customendDrawer extends StatelessWidget {
             drawerItemWidget(
               text: 'Settings',
               imagePath: 'assets/images/sidebar_icon/icon-settings.png',
-              callback: () {},
+              callback: () {
+                Get.back();
+                Get.to(setting_view());
+              },
             ),
             Divider(),
             drawerItemWidget(

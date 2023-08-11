@@ -3,8 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../app/modules/global/constants/color.dart';
-import '../../app/modules/recently_posted_item.dart/view/recently_posted_list.dart';
+import '../../global/constants/color.dart';
+import '../../recently_posted_item.dart/view/recently_posted_list.dart';
 
 class run_an_errand extends StatefulWidget {
   const run_an_errand({super.key});

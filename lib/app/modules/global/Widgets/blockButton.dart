@@ -7,11 +7,13 @@ class blockButton extends StatelessWidget {
       required this.title,
       required this.ontap,
       required this.color,
-      this.textcolor});
+      this.textcolor,
+      this.bordercolor});
   Widget title;
   VoidCallback ontap;
   Color color;
   Color? textcolor= Colors.white;
+  Color? bordercolor;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class blockButton extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-            color: Color(0xffe0e6ec),
+            color: bordercolor==null?Color(0xffe0e6ec):bordercolor!,
           ),
           color: color,
         ),

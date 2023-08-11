@@ -6,8 +6,9 @@ class Languages extends Translations {
   Map<String, Map<String, String>> get keys => {
         'en_US': {
           'appName': 'Errandia',
-          'Business': 'Mera Business',
-          'Update Buiseness Location':'Update Buiseness Location'
+          'Business': 'Business',
+          'Update Buiseness Location':'Update Buiseness Location',
+          'Edit Profile': 'Edit Profile'
         },
         'fr_CA': {
           'appName': 'Errandia',

@@ -1,7 +1,8 @@
 import 'package:errandia/app/modules/buiseness/controller/business_controller.dart';
 import 'package:errandia/app/modules/buiseness/view/add_business_view.dart';
 import 'package:errandia/app/modules/products/controller/manage_products_controller.dart';
-import 'package:errandia/app/modules/products/view/filter_product_view.dart';
+import 'package:errandia/app/modules/products/view/add_product_view.dart';
+import 'package:errandia/app/modules/global/Widgets/filter_product_view.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -26,7 +27,7 @@ class manage_product_view extends StatelessWidget {
     return Scaffold(
         floatingActionButton: InkWell(
           onTap: () {
-            // Get.off(add_business_view());
+            Get.to(add_product_view());
           },
           child: new Container(
             width: Get.width * 0.47,

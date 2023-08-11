@@ -1,9 +1,16 @@
-
+import 'package:errandia/app/modules/Enquiries/view/enquiries_view.dart';
+import 'package:errandia/app/modules/errands/view/errand_view.dart';
+import 'package:errandia/app/modules/following/view/following_view.dart';
 import 'package:errandia/app/modules/global/Widgets/account_suspended_widget.dart';
 import 'package:errandia/app/modules/global/Widgets/appbar.dart';
 import 'package:errandia/app/modules/global/Widgets/customDrawer.dart';
 import 'package:errandia/app/modules/global/constants/color.dart';
 import 'package:errandia/app/modules/home/view/home_view.dart';
+import 'package:errandia/app/modules/manage_review/view/manage_review_view.dart';
+import 'package:errandia/app/modules/services/view/manage_service_view.dart';
+import 'package:errandia/app/modules/sms_plan/view/sms_plan_view.dart';
+import 'package:errandia/app/modules/subscribers/view/subscriber_view.dart';
+import 'package:errandia/app/modules/subscription/view/manage_subscription_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -79,7 +86,7 @@ class dashboard_view extends StatelessWidget {
                     title: 'Manage Products',
                     belowtext: '0 Products',
                     callback: () {
-                      Get.back();
+                      // Get.back();
                       Get.to(manage_product_view());
                     },
                   ),
@@ -87,40 +94,53 @@ class dashboard_view extends StatelessWidget {
                     Imagepath: 'assets/images/sidebar_icon/services.png',
                     title: 'Manage Services',
                     belowtext: '0 Services',
-                    callback: () {},
+                    callback: () {
+                      // Get.back();
+                      Get.to(manage_service_view());
+                    },
                   ),
                   dashboard_widget(
                     Imagepath:
                         'assets/images/sidebar_icon/icon-profile-errands.png',
                     title: 'Errands',
                     belowtext: '0 Errands',
-                    callback: () {},
+                    callback: () {
+                      Get.to(errand_view());
+                    },
                   ),
                   dashboard_widget(
                     Imagepath: 'assets/images/sidebar_icon/enquiry.png',
                     title: 'Enquiries',
                     belowtext: '0 Enquiries',
-                    callback: () {},
+                    callback: () {
+                      Get.to(enquireis_view());
+                    },
                   ),
                   dashboard_widget(
                     Imagepath: 'assets/images/sidebar_icon/icon-reviews.png',
                     title: 'Reviews',
                     belowtext: '0 Reviews',
-                    callback: () {},
+                    callback: () {
+                      Get.to(()=>manage_review_view());
+                    },
                   ),
                   dashboard_widget(
                     Imagepath:
                         'assets/images/sidebar_icon/icon-profile-subscribers.png',
                     title: 'Subscribers',
                     belowtext: '0 Subscribers',
-                    callback: () {},
+                    callback: () {
+                      Get.to(subscriber_view());
+                    },
                   ),
                   dashboard_widget(
                     Imagepath:
                         'assets/images/sidebar_icon/icon-profile-following.png',
                     title: 'Following',
                     belowtext: '0 Following',
-                    callback: () {},
+                    callback: () {
+                      Get.to(following_view());
+                    },
                   ),
                 ],
               ),
@@ -162,13 +182,17 @@ class dashboard_view extends StatelessWidget {
                           'assets/images/sidebar_icon/icon-dashboard-subscription-plan.png',
                       title: 'Subscription',
                       belowtext: 'Ongoing',
-                      callback: () {}),
+                      callback: () {
+                        Get.to(()=> subscription_view());
+                      }),
                   dashboard_widget(
                       Imagepath:
                           'assets/images/sidebar_icon/icon-dashboard-smsplan.png',
                       title: 'SMS Plan',
                       belowtext: 'No Plan',
-                      callback: () {}),
+                      callback: () {
+                        Get.to(sms_plan_view());
+                      }),
                   dashboard_widget(
                       Imagepath:
                           'assets/images/sidebar_icon/icon-dashboard-my-profile.png',

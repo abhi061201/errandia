@@ -3,7 +3,7 @@ import 'package:errandia/app/modules/global/constants/color.dart';
 import 'package:errandia/app/modules/categories/view/categories.dart';
 import 'package:errandia/app/modules/home/controller/home_controller.dart';
 import 'package:errandia/common/random_ui/ui_23.dart';
-import 'package:errandia/common/random_ui/run_an_errand.dart';
+import 'package:errandia/app/modules/errands/view/run_an_errand.dart';
 import 'package:errandia/app/modules/products/view/product_view.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

@@ -184,32 +184,6 @@ class _Profile_viewState extends State<Profile_view>
             child: TabBarView(
               controller: tabController,
               children: [
-                // profile_controller().product_list.length < 0
-                //     ? product_item_list()
-                //     : Column(
-                //         mainAxisAlignment: MainAxisAlignment.center,
-                //         children: [
-                //           Text(
-                //             'No Products Yet',
-                //             style: TextStyle(
-                //               color: appcolor().mediumGreyColor,
-                //               fontSize: 16,
-                //             ),
-                //           ),
-                //           TextButton(
-                //             onPressed: () {},
-                //             child: Text(
-                //               'Add Products',
-                //               style: TextStyle(
-                //                 fontSize: 16,
-                //                 fontWeight: FontWeight.bold,
-                //                 decoration: TextDecoration.underline,
-                //               ),
-                //             ),
-                //           )
-                //         ],
-                //       ),
-
                 profile_controller().product_list.length < 0
                     ? product_item_list()
                     : accoutSuspended(),
@@ -284,7 +258,7 @@ Widget details_container_item_widget(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Container(
-        child: Image(
+          child: Image(
         image: AssetImage(imagepath),
         height: Get.height * 0.03,
         fit: BoxFit.fill,

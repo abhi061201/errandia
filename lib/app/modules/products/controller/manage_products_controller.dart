@@ -25,4 +25,6 @@ class manage_product_tabController extends GetxController
     tabController.dispose();
     super.dispose();
   }
+
+  
 }

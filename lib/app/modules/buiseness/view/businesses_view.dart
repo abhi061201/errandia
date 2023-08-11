@@ -77,7 +77,7 @@ class Businesses_View extends StatelessWidget {
                 ),
                 Spacer(),
                 InkWell(
-                  splashColor: Colors.grey,
+                  // splashColor: Colors.grey,
                   // splashFactory: InkSplash.splashFactory,'[=]
                   // radius: 25,
                   onTap: () {
