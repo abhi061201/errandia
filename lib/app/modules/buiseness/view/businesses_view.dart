@@ -323,7 +323,7 @@ class Businesses_View extends StatelessWidget {
                               .type_of_business,
                           style: TextStyle(
                               fontSize: 13,
-                              fontWeight: FontWeight.bold,
+                              // fontWeight: FontWeight.bold,
                               color: appcolor().mediumGreyColor),
                         ),
                         SizedBox(

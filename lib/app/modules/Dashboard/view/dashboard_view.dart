@@ -32,15 +32,15 @@ class dashboard_view extends StatelessWidget {
           custombottomsheet(context);
         },
         child: Container(
-          height: 80,
-          width: 80,
+          height: 50,
+          width: 50,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: appcolor().skyblueColor,
           ),
           child: Icon(
             Icons.add,
-            size: 60,
+            size: 30,
             color: appcolor().mainColor,
           ),
         ),
@@ -59,7 +59,7 @@ class dashboard_view extends StatelessWidget {
                 style: TextStyle(
                     color: appcolor().mainColor,
                     fontSize: 22,
-                    fontWeight: FontWeight.bold),
+                    fontWeight: FontWeight.w600),
               ),
             ),
             Container(
@@ -277,7 +277,7 @@ Widget dashboard_widget({
                   style: TextStyle(
                       fontSize: 16,
                       color: appcolor().mainColor,
-                      fontWeight: FontWeight.w600),
+                      fontWeight: FontWeight.w500),
                   textAlign: TextAlign.center,
                 ),
                 Text(
@@ -285,7 +285,7 @@ Widget dashboard_widget({
                   style: TextStyle(
                     fontSize: 11,
                     color: Colors.grey,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w400,
                   ),
                   textAlign: TextAlign.center,
                 ),

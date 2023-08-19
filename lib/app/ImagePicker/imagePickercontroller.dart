@@ -20,6 +20,7 @@ class imagePickercontroller extends GetxController {
     final image = await _picker.pickImage(source: ImageSource.camera);
     if (image != Null) {
       image_path.value = image!.path.toString();
+      
     }
   }
 

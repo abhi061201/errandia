@@ -4,9 +4,15 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:errandia/app/ImagePicker/imagePickercontroller.dart';
+import 'package:errandia/app/modules/products/controller/add_product_controller.dart';
+import 'dart:io';
 
 class product_send_enquiry extends StatelessWidget {
-  const product_send_enquiry({super.key});
+  product_send_enquiry({super.key});
+  add_product_cotroller product_controller = Get.put(add_product_cotroller());
+
+  imagePickercontroller imageController = Get.put(imagePickercontroller());
 
   @override
   Widget build(BuildContext context) {
@@ -33,20 +39,11 @@ class product_send_enquiry extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      
       body: CustomScrollView(
         slivers: [
           SliverList.list(
             children: [
               Container(
-                // margin: EdgeInsets.symmetric(vertical: 25,),
-                // decoration: BoxDecoration(
-                //   border: Border.symmetric(
-                //     horizontal: BorderSide(
-                //       color: appcolor().mediumGreyColor,
-                //     ),
-                //   ),
-                // ),
                 height: Get.height * 0.12,
                 child: Row(
                   children: [
@@ -92,14 +89,6 @@ class product_send_enquiry extends StatelessWidget {
                 color: appcolor().mediumGreyColor,
               ),
               Container(
-                // decoration: BoxDecoration(
-                //   border: Border.symmetric(
-                //     horizontal: BorderSide(
-                //       color: appcolor().mediumGreyColor,
-                //     ),
-                //   ),
-                // ),
-                // margin: EdgeInsets.symmetric(vertical: 25,),
                 height: Get.height * 0.12,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -135,113 +124,273 @@ class product_send_enquiry extends StatelessWidget {
                   ],
                 ).paddingSymmetric(horizontal: 20),
               ),
-              Divider(
-                color: appcolor().mediumGreyColor,
+              Obx(
+                () => Container(
+                  height: imageController.imageList.isEmpty ? null : null,
+                  child: imageController.imageList.isEmpty
+                      ? InkWell(
+                          onTap: () {
+                            // showDialog(
+                            //   context: context,
+                            //   builder: (context) {
+                            //     return AlertDialog(
+                            //       insetPadding: EdgeInsets.symmetric(
+                            //         horizontal: 20,
+                            //       ),
+                            //       contentPadding: EdgeInsets.symmetric(
+                            //         horizontal: 8,
+                            //         vertical: 20,
+                            //       ),
+                            //       scrollable: true,
+                            //       content: Container(
+                            //         // height: Get.height * 0.7,
+                            //         width: Get.width,
+                            //         child: Column(
+                            //           mainAxisAlignment:
+                            //               MainAxisAlignment.center,
+                            //           crossAxisAlignment:
+                            //               CrossAxisAlignment.start,
+                            //           children: [
+                            //             Text(
+                            //               'Select Images',
+                            //               style: TextStyle(
+                            //                 color: appcolor().mainColor,
+                            //                 fontSize: 18,
+                            //                 fontWeight: FontWeight.bold,
+                            //               ),
+                            //             ),
+                            //             SizedBox(
+                            //               height: Get.height * 0.05,
+                            //             ),
+                            //             Column(
+                            //               children: [
+                            //                 blockButton(
+                            //                   title: Row(
+                            //                     mainAxisAlignment:
+                            //                         MainAxisAlignment.center,
+                            //                     children: [
+                            //                       Icon(
+                            //                         FontAwesomeIcons.image,
+                            //                         color: appcolor().mainColor,
+                            //                         size: 22,
+                            //                       ),
+                            //                       Text(
+                            //                         '  Image Gallery',
+                            //                         style: TextStyle(
+                            //                             color: appcolor()
+                            //                                 .mainColor),
+                            //                       ),
+                            //                     ],
+                            //                   ),
+                            //                   ontap: () {
+                            //                     Get.back();
+                            //                     imageController
+                            //                         .getmultipleImage();
+                            //                   },
+                            //                   color: appcolor().greyColor,
+                            //                 ),
+                            //                 SizedBox(
+                            //                   height: Get.height * 0.015,
+                            //                 ),
+                            //                 blockButton(
+                            //                   title: Row(
+                            //                     mainAxisAlignment:
+                            //                         MainAxisAlignment.center,
+                            //                     children: [
+                            //                       Icon(
+                            //                         FontAwesomeIcons.camera,
+                            //                         color: appcolor().mainColor,
+                            //                         size: 22,
+                            //                       ),
+                            //                       Text(
+                            //                         '  Take Photo',
+                            //                         style: TextStyle(
+                            //                           color:
+                            //                               appcolor().mainColor,
+                            //                         ),
+                            //                       ),
+                            //                     ],
+                            //                   ),
+                            //                   ontap: () {
+                            //                     Get.back();
+                            //                     imageController
+                            //                         .getimagefromCamera();
+                            //                   },
+                            //                   color: Color(0xfffafafa),
+                            //                 ),
+                            //               ],
+                            //             )
+                            //           ],
+                            //         ).paddingSymmetric(
+                            //           horizontal: 10,
+                            //           vertical: 10,
+                            //         ),
+                            //       ),
+                            //     );
+                            //   },
+                            // );
+                            
+                            imageController.getmultipleImage();
+                          },
+                          child: Container(
+                              child: Column(
+                            children: [
+                              Container(
+                                color: appcolor().greyColor,
+                                height: Get.height * 0.22,
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    // SizedBox(height: Get.height*0.05,),
+                                    Center(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            FontAwesomeIcons.images,
+                                            size: 60,
+                                            color: appcolor().mediumGreyColor,
+                                          ),
+                                          Text(
+                                            '     Browse Images',
+                                            style: TextStyle(
+                                              color: appcolor().bluetextcolor,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    // SizedBox(
+                                    //   height: Get.height * 0.05,
+                                    // ),
+                                    Text(
+                                      'Other variations of the main product image',
+                                      style: TextStyle(
+                                        fontSize: 10,
+                                        color: appcolor().mediumGreyColor,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          )),
+                        )
+                      : Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 10),
+                          height: Get.height * 0.24,
+                          child: Center(
+                            child: ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: imageController.imageList.length,
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (context, index) {
+                                return Column(
+                                  children: [
+                                    Container(
+                                      height: Get.height * 0.15,
+                                      width: Get.width * 0.40,
+                                      decoration:
+                                          BoxDecoration(border: Border.all()),
+                                      child: Image(
+                                        image: FileImage(
+                                          File(
+                                            imageController
+                                                .imageList[index].path
+                                                .toString(),
+                                          ),
+                                        ),
+                                        fit: BoxFit.fill,
+                                      ),
+                                    ),
+                                    Container(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          InkWell(
+                                            onTap: () {
+                                              imageController.edit(index);
+                                            },
+                                            child: Container(
+                                              height: 35,
+                                              width: Get.width * 0.20,
+                                              color: Colors.lightGreen,
+                                              child: Center(
+                                                child: Text(
+                                                  'Edit',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          InkWell(
+                                            onTap: () {
+                                              imageController.removeat(index);
+                                            },
+                                            child: Container(
+                                              height: 35,
+                                              width: Get.width * 0.2,
+                                              color: appcolor().greyColor,
+                                              child: Center(
+                                                child: Text(
+                                                  'Remove',
+                                                  style: TextStyle(),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ).paddingSymmetric(horizontal: 5);
+                              },
+                            ),
+                          ),
+                        ),
+                ),
               ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          height: Get.height * 0.2,
-                          color: appcolor().mainColor,
-                          width: Get.width * 0.401,
-                          child: Column(
-                            children: [
-                              Container(
-                                height: Get.height * 0.15,
+              Obx(
+                () => Container(
+                  child: imageController.imageList.isEmpty
+                      ? null
+                      : InkWell(
+                          onTap: () {
+                            imageController.getmultipleImage();
+                          },
+                          child: Container(
+                            margin: EdgeInsets.symmetric(horizontal: 15),
+                            decoration: BoxDecoration(
+                              color: appcolor().skyblueColor,
+                              borderRadius: BorderRadius.circular(
+                                10,
                               ),
-                              Row(
-                                children: [
-                                  InkWell(
-                                    onTap: () {},
-                                    child: Container(
-                                      width: Get.width * 0.2,
-                                      color: appcolor().greenColor,
-                                      height: Get.height * 0.05,
-                                      child: Center(
-                                        child: Text(
-                                          'Edit',
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    height: Get.height * 0.05,
-                                    color: Colors.black,
-                                    width: Get.width * 0.001,
-                                  ),
-                                  InkWell(
-                                    onTap: () {},
-                                    child: Container(
-                                      width: Get.width * 0.2,
-                                      color: appcolor().greyColor,
-                                      height: Get.height * 0.05,
-                                      child: Center(
-                                        child: Text(
-                                          'Remove',
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
+                            ),
+                            height: Get.height * 0.08,
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.image,
+                                ),
+                                Text(
+                                  '   Add more images',
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                        Container(
-                          height: Get.height * 0.2,
-                          color: appcolor().mainColor,
-                          width: Get.width * 0.401,
-                          child: Column(
-                            children: [
-                              Container(
-                                height: Get.height * 0.15,
-                              ),
-                              Row(
-                                children: [
-                                  InkWell(
-                                    onTap: () {},
-                                    child: Container(
-                                      width: Get.width * 0.2,
-                                      color: appcolor().greenColor,
-                                      height: Get.height * 0.05,
-                                      child: Center(
-                                        child: Text(
-                                          'Edit',
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    height: Get.height * 0.05,
-                                    color: Colors.black,
-                                    width: Get.width * 0.001,
-                                  ),
-                                  InkWell(
-                                    onTap: () {},
-                                    child: Container(
-                                      width: Get.width * 0.2,
-                                      color: appcolor().greyColor,
-                                      height: Get.height * 0.05,
-                                      child: Center(
-                                        child: Text(
-                                          'Remove',
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
                 ),
               ),
               Column(
@@ -267,6 +416,7 @@ class product_send_enquiry extends StatelessWidget {
                       child: TextFormField(
                         decoration: InputDecoration(
                           enabledBorder: InputBorder.none,
+                          border: InputBorder.none,
                           contentPadding: EdgeInsets.symmetric(
                             horizontal: 10,
                           ),
@@ -294,8 +444,9 @@ class product_send_enquiry extends StatelessWidget {
                       color: Colors.white,
                     ),
                     child: TextFormField(
+                      maxLines: 4,
                       decoration: InputDecoration(
-                        enabledBorder: InputBorder.none,
+                        border: InputBorder.none,
                         contentPadding: EdgeInsets.symmetric(
                           horizontal: 10,
                         ),

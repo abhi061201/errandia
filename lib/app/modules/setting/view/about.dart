@@ -34,17 +34,17 @@ class about_view extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              margin: EdgeInsets.symmetric(
-                vertical: 5,
-              ),
-              width: Get.width * 0.4,
-              height: Get.height * 0.06,
-              child: Image(
-                image: AssetImage('assets/images/icon-errandia-logo-about.png'),
-                fit: BoxFit.fill,
-              ),
-            ),
+            // Container(
+            //   margin: EdgeInsets.symmetric(
+            //     vertical: 5,
+            //   ),
+            //   width: Get.width * 0.4,
+            //   height: Get.height * 0.06,
+            //   child: Image(
+            //     image: AssetImage('assets/images/icon-errandia-logo-about.png'),
+            //     fit: BoxFit.fill,
+            //   ),
+            // ),
             Container(
               padding: EdgeInsets.only(
                 bottom: 10,

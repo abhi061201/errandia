@@ -1,5 +1,3 @@
-
-
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -179,9 +177,9 @@ class _following_viewState extends State<following_view> {
                                   ),
                           ),
                           Container(
-                            width: Get.width * 0.4,
+                            width: Get.width * 0.45,
                             // decoration: BoxDecoration(color: Colors.red),
-                            height: Get.height * 0.08,
+                            // height: Get.height * 0.08,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -221,26 +219,37 @@ class _following_viewState extends State<following_view> {
                                             fontWeight: FontWeight.w600,
                                           ),
                                         ),
-                                        // TextSpan(
-                                        //   text: controller
-                                        //       .allenquiry_list[index]
-                                        //       .Description,
-                                        // ),
                                       ],
                                     ),
                                   ),
                                 ),
+                                controller.following_list[index].button_is_open==true?
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text('Member Since: ', style: TextStyle(color: appcolor().mainColor, fontSize: 12),),
+                                    Text('Feb 2016', style: TextStyle(color: appcolor().mainColor, fontSize: 12),)
+                                  ],
+                                ):Container(),
+                                SizedBox(height: 5,),
+                                controller.following_list[index].button_is_open==true?
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text('Subscribed on: ', style: TextStyle(color: appcolor().mainColor, fontSize: 12),),
+                                    Text('12 Feb 2016', style: TextStyle(color: appcolor().mainColor, fontSize: 12, fontWeight: FontWeight.w500,),)
+                                  ],
+                                ):Container(),
                               ],
                             ),
                           ),
                           Spacer(),
                           InkWell(
                             onTap: () {
-                              // log('hii');
-                              controller.following_list[index].button_is_open = !controller.following_list[index].button_is_open!;
-                              setState(() {
-                                
-                              });
+                              controller.following_list[index].button_is_open =
+                                  !controller
+                                      .following_list[index].button_is_open!;
+                              setState(() {});
                             },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -250,6 +259,7 @@ class _following_viewState extends State<following_view> {
                                   'UNSUBSCRIBE',
                                   style: TextStyle(
                                     color: appcolor().bluetextcolor,
+                                    fontSize: 12,
                                   ),
                                 ),
                                 Container(
@@ -260,18 +270,18 @@ class _following_viewState extends State<following_view> {
                                       borderRadius: BorderRadius.circular(
                                         8,
                                       )),
-                                  padding: EdgeInsets.symmetric(horizontal:5),
+                                  padding: EdgeInsets.symmetric(horizontal: 5),
                                   child: Icon(
-                                    
                                     controller.following_list[index]
                                                 .button_is_open ==
                                             false
                                         ? Icons.arrow_drop_down
                                         : Icons.arrow_drop_up,
                                     color: appcolor().mediumGreyColor,
-                                    size: 30,
+                                    size: 24,
                                   ),
                                 ),
+                                // controller.following_list[index].button_is_open==true?
                               ],
                             ),
                           ),

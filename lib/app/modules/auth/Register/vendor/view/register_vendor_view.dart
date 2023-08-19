@@ -59,7 +59,7 @@ class register_vendor_view extends StatelessWidget {
                       'REGISTER YOUR ERRANDIA ACCOUNT',
                       style: TextStyle(
                         fontSize: 24,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w600,
                         color: Color(0xff113d6b),
                       ),
                       textAlign: TextAlign.center,
@@ -376,7 +376,6 @@ class register_vendor_view extends StatelessWidget {
                               ),
                               children: [
                                 TextSpan(
-                                  
                                   text:
                                       'By registering, you agree to the Errandia\'s ',
                                 ),
@@ -440,7 +439,7 @@ class register_vendor_view extends StatelessWidget {
                               'CONTINUE',
                               style: TextStyle(
                                   fontSize: 18,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.w600,
                                   color: Colors.white),
                             ),
                           ),

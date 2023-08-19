@@ -45,7 +45,7 @@ class Register_Ui extends StatelessWidget {
                       'REGISTER YOUR ERRANDIA ACCOUNT',
                       style: TextStyle(
                         fontSize: 24,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w600,
                         color: Color(0xff113d6b),
                       ),
                       textAlign: TextAlign.center,
@@ -63,9 +63,9 @@ class Register_Ui extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      'Create an account to continue by selecting one of the options below',
+                      'Create an account to continue by selecting\none of the options below',
                       style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 13,
                         fontWeight: FontWeight.w500,
                         color: Color(0xff8ba0b7),
                       ),

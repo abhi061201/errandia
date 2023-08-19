@@ -693,6 +693,7 @@ void errandia_view_bottomsheet() {
                 Container(
                   color: Colors.white,
                   child: Wrap(
+                    crossAxisAlignment: WrapCrossAlignment.start,
                     children: [
                       Icon(
                         Icons.horizontal_rule,

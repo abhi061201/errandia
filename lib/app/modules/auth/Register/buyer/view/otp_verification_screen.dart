@@ -45,21 +45,15 @@ class register_otp_verification_screen extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      'ENTER',
+                      'ENTER\nVERIFICATION CODE',
                       style: TextStyle(
                         fontSize: 26,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w600,
                         color: Color(0xff113d6b),
                       ),
+                      textAlign: TextAlign.center,
                     ),
-                    Text(
-                      'VERIFICATION CODE',
-                      style: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.w700,
-                        color: Color(0xff113d6b),
-                      ),
-                    ),
+                   
 
                     SizedBox(
                       height: Get.height * 0.03,
@@ -70,21 +64,15 @@ class register_otp_verification_screen extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            'Enter the 4 - digit code you received',
+                            'Enter the 4 - digit code you received\non +237 678 245 693',
                             style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.w500,
                               color: Color(0xff8ba0b7),
                             ),
+                            textAlign: TextAlign.center,
                           ),
-                          Text(
-                            'on +237 678 245 693',
-                            style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xff8ba0b7),
-                            ),
-                          ),
+                          
                           RichText(
                             text: TextSpan(
                               style: TextStyle(
@@ -194,7 +182,7 @@ class register_otp_verification_screen extends StatelessWidget {
                               'CONTINUE',
                               style: TextStyle(
                                   fontSize: 18,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.w500,
                                   color: Colors.white),
                             ),
                           ),

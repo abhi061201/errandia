@@ -114,8 +114,8 @@ class home_view_1 extends StatelessWidget {
                       style: TextStyle(
                         color: appcolor().mainColor,
                         fontSize: 10,
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline,
+                        fontWeight: FontWeight.w600,
+                        
                       ),
                     ),
                   ),
@@ -132,7 +132,7 @@ class home_view_1 extends StatelessWidget {
                   Text(
                     'Categories',
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w700,
                       fontSize: 18,
                       color: appcolor().mainColor,
                     ),
@@ -159,7 +159,7 @@ class home_view_1 extends StatelessWidget {
                   Text(
                     'Featured Businesses',
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w700,
                       fontSize: 18,
                       color: appcolor().mainColor,
                     ),
@@ -284,8 +284,8 @@ Widget Featured_Businesses_List() {
               Text(
                 Featured_Businesses_Item_List[index].servicetype.toString(),
                 style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                    // fontWeight: FontWeight.bold,
                     color: appcolor().mediumGreyColor),
               ),
               SizedBox(

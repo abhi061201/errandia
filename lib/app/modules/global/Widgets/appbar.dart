@@ -1,4 +1,5 @@
 import 'package:errandia/app/modules/home/controller/home_controller.dart';
+import 'package:errandia/app/modules/home/view/home_view.dart';
 import 'package:errandia/app/modules/setting/view/setting_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -26,9 +27,14 @@ AppBar appbar() {
     automaticallyImplyLeading: false,
     title: Row(
       children: [
-        Image(
-          image: AssetImage('assets/images/icon-errandia-logo-about.png'),
-          width: Get.width * 0.3,
+        InkWell(
+          onTap: (){
+            Get.offAll(Home_view());
+          },
+          child: Image(
+            image: AssetImage('assets/images/icon-errandia-logo-about.png'),
+            width: Get.width * 0.3,
+          ),
         ),
         Spacer(),
         IconButton(

@@ -43,7 +43,7 @@ class business_item extends StatelessWidget {
                 Featured_Businesses_Item_List[0].servicetype.toString(),
                 style: TextStyle(
                     fontSize: 13,
-                    fontWeight: FontWeight.bold,
+                    // fontWeight: FontWeight.bold,
                     color: appcolor().mediumGreyColor),
               ),
               SizedBox(

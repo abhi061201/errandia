@@ -59,7 +59,7 @@ class buyer_register_view extends StatelessWidget {
                       'REGISTER YOUR ERRANDIA ACCOUNT',
                       style: TextStyle(
                         fontSize: 24,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w600,
                         color: Color(0xff113d6b),
                       ),
                       textAlign: TextAlign.center,
@@ -79,7 +79,7 @@ class buyer_register_view extends StatelessWidget {
                 child: Text(
                   'Create an account your Errandia account',
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 13,
                     fontWeight: FontWeight.w500,
                     color: Color(0xff8ba0b7),
                   ),
@@ -243,7 +243,7 @@ class buyer_register_view extends StatelessWidget {
                               'CONTINUE',
                               style: TextStyle(
                                   fontSize: 18,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.w500,
                                   color: Colors.white),
                             ),
                           ),

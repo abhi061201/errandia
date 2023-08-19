@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+class setting_controller extends GetxController{
+
+  RxString language= 'English'.obs;
+  RxString groupValue= 'English'.obs;
+}
+
 class notification_controller extends GetxController {
   RxList<bool> buttons = <bool>[
     true,

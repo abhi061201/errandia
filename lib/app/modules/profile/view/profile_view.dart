@@ -314,6 +314,7 @@ Widget Buiseness_item_list() {
         childAspectRatio: 1 / 1.8,
       ),
       itemBuilder: (context, index) {
+        // return Text(index.toString());
         return business_controller().businessList[index];
       });
 }

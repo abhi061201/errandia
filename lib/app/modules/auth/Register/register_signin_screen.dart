@@ -87,7 +87,7 @@ class register_signin_screen extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 20,
                           color: Color(0XFF113d6b),
-                          fontWeight: FontWeight.bold
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
@@ -116,7 +116,7 @@ class register_signin_screen extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.white,
-                          fontWeight: FontWeight.bold
+                          fontWeight: FontWeight.w500
                         ),
                       ),
                     ),

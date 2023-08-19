@@ -66,7 +66,7 @@ class register_serviceprovider_view extends StatelessWidget {
                       'REGISTER YOUR ERRANDIA ACCOUNT',
                       style: TextStyle(
                         fontSize: 24,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w600,
                         color: Color(0xff113d6b),
                       ),
                       textAlign: TextAlign.center,
@@ -538,7 +538,7 @@ class register_serviceprovider_view extends StatelessWidget {
                               'CONTINUE',
                               style: TextStyle(
                                   fontSize: 18,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.w600,
                                   color: Colors.white),
                             ),
                           ),
